@@ -586,6 +586,10 @@
     display: block;
   }
 
+  .contents {
+    display: contents;
+  }
+
   .flex {
     display: flex;
   }
@@ -990,12 +994,20 @@
     border-color: var(--color-line);
   }
 
+  .bg-\[\#1e2c21\] {
+    background-color: #1e2c21;
+  }
+
   .bg-\[\#3b5649\] {
     background-color: #3b5649;
   }
 
   .bg-\[\#6d8274\] {
     background-color: #6d8274;
+  }
+
+  .bg-\[\#576745\] {
+    background-color: #576745;
   }
 
   .bg-\[\#A8C9C2\] {
@@ -1016,6 +1028,14 @@
 
   .bg-\[\#b4c4bc\] {
     background-color: #b4c4bc;
+  }
+
+  .bg-\[\#bedcc4\] {
+    background-color: #bedcc4;
+  }
+
+  .bg-\[\#c9d1c0\] {
+    background-color: #c9d1c0;
   }
 
   .bg-\[\#dcc3ad\] {
@@ -1438,6 +1458,10 @@
     word-break: break-all;
   }
 
+  .text-\[\#1e2c21\] {
+    color: #1e2c21;
+  }
+
   .text-\[\#2c3d50\] {
     color: #2c3d50;
   }
@@ -1476,6 +1500,10 @@
 
   .text-\[\#394633\] {
     color: #394633;
+  }
+
+  .text-\[\#576745cc\] {
+    color: #576745cc;
   }
 
   .text-\[\#856140\] {

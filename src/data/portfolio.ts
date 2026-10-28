@@ -19,7 +19,12 @@ export const projects = [
         short: "HKFA",
         category: "Commercial",
         client: "Hong Kong Football Association",
-        tags: ["Nuxt.js", "Vue.js"],
+        tags: [
+            "Nuxt.js", 
+            "Vue.js", 
+            "Element UI", 
+            "Swiper"
+        ],
         description:
             "Developed bilingual responsive front-end pages for news, competition information and multi-section navigation, implementing supplied designs for fans and stakeholders.",
         links: [{ label: "Visit website", url: "https://www.hkfa.com/" }],
@@ -32,7 +37,12 @@ export const projects = [
         short: "The Haddon",
         category: "Property",
         client: "Henderson Land",
-        tags: ["Vue.js", "DaisyUI", "fullPage.js"],
+        tags: [
+            "Vue.js", 
+            "DaisyUI", 
+            "fullPage.js", 
+            "Swiper", 
+        ],
         description:
             "Implemented an interactive bilingual property website with full-page scrolling, image galleries and a digital sales brochure (flipbook).",
         links: [
@@ -47,7 +57,14 @@ export const projects = [
         short: "Harbour City",
         category: "Commercial",
         client: "Carbour City",
-        tags: ["Nuxt.js", "AOS"],
+        tags: [
+            "Nuxt.js", 
+            "Vue.js", 
+            "AOS", 
+            "Swiper", 
+            "DaisyUI", 
+            "Animate.css"
+        ],
         description:
             "Built responsive front-end pages with scroll-triggered visual effects, office galleries, location information and leasing-enquiry UI.",
         links: [
@@ -65,7 +82,14 @@ export const projects = [
         short: "Delight Terrace",
         category: "Property",
         client: "Hong Kong Housing Society",
-        tags: ["Nuxt.js", "fullPage.js", "Fancyapps (Panzoom)"],
+        tags: [
+            "Nuxt.js",
+            "Vue.js",
+            "fullPage.js",
+            "Fancyapps (Panzoom)",
+            "Swiper",
+            "Animate.css",
+        ],
         description:
             "Created a bilingual property-sales front end with full-page scrolling, section navigation, residential development details and responsive layouts.",
         links: [
@@ -83,7 +107,14 @@ export const projects = [
         short: "Eminence Terrace I",
         category: "Property",
         client: "Hong Kong Housing Society",
-        tags: ["Nuxt.js", "Plyr.js"],
+        tags: [
+            "Nuxt.js",
+            "Vue.js",
+            "Plyr.js",
+            "Swiper",
+            "Animate.css",
+            "Fancyapps (Fancybox)",
+        ],
         description:
             "Built bilingual property-sales website front ends with responsive layouts and video content presentation.",
         links: [
@@ -101,7 +132,14 @@ export const projects = [
         short: "Sierra Terrace I",
         category: "Property",
         client: "Hong Kong Housing Society",
-        tags: ["Nuxt.js", "Plyr.js"],
+        tags: [
+            "Nuxt.js",
+            "Vue.js",
+            "Plyr.js",
+            "Swiper",
+            "Animate.css",
+            "Fancyapps (Fancybox)",
+        ],
         description:
             "Built bilingual property-sales website front ends with responsive layouts and video content presentation.",
         links: [
@@ -119,7 +157,12 @@ export const projects = [
         short: "UNI Residence",
         category: "Property",
         client: "Wing Tai Asia",
-        tags: ["Nuxt.js", "fullPage.js"],
+        tags: [
+            "Nuxt.js", 
+            "Vue.js", 
+            "fullpage.js", 
+            "Swiper"
+        ],
         description:
             "Implemented responsive bilingual property-sales pages with full-screen section navigation and interactive presentation.",
         links: [
@@ -134,12 +177,49 @@ export const projects = [
         short: "Oria",
         category: "Property",
         client: "Hip Shing Hong",
-        tags: ["Nuxt.js"],
+        tags: [
+            "Nuxt.js", 
+            "Vue.js", 
+            "Swiper"
+        ],
         description:
             "Developed responsive bilingual property-sales pages with full-screen section navigation, interactive presentation and video content.",
         links: [{ label: "Visit website", url: "https://oria.hk/en" }],
         colour: "bg-[#a3c0d6] text-[#295576]",
         cover: "/images/projects/oria.png",
+    },
+    {
+        id: "09",
+        name: "Sutton",
+        short: "Sutton",
+        category: "Property",
+        client: "K & K Property",
+        tags: [
+            "Nuxt.js", 
+            "Vue.js", 
+            "AOS", 
+            "Swiper"
+        ],
+        description: "",
+        links: [{ label: "Visit website", url: "https://sutton.hk/" }],
+        colour: "bg-[#bedcc4] text-[#1e2c21]",
+        cover: "/images/projects/sutton.png",
+    },
+    {
+        id: "10",
+        name: "Wan Fau Sin Koon",
+        short: "Wan Fau Sin Koon",
+        category: "NGO",
+        client: "N/A",
+        tags: [
+            "Wordpress"
+        ],
+        description: "",
+        links: [
+            { label: "Visit website", url: "https://www.wanfausinkoon.com.hk" },
+        ],
+        colour: "bg-[#c9d1c0] text-[#576745cc]",
+        cover: "/images/projects/wanfausinkoon.png",
     },
 ];
 export const skills = [
@@ -174,6 +254,10 @@ export const skills = [
             "AOS",
             "Plyr.js",
             "Form UI & validation",
+            "FormKit",
+            "Element UI",
+            "Fancyapps",
+            "Animate.css",
         ],
     },
     {

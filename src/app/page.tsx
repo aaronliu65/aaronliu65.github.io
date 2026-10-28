@@ -80,10 +80,6 @@ export default function Home() {
         };
     }, [selected]);
 
-    const testConsole = () => {
-        console.log("testConsole function called");
-    };
-
     return (
         <>
             <a
@@ -192,7 +188,7 @@ export default function Home() {
                         className="my-8 flex flex-wrap gap-2"
                         aria-label="Filter projects"
                     >
-                        {["All work", "Property", "Commercial"].map(
+                        {["All work", "Property", "Commercial", "NGO"].map(
                             (value) => (
                                 <button
                                     key={value}
