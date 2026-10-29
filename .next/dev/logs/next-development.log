@@ -1,52 +1,29 @@
-{"timestamp":"00:00:01.080","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:05.221","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:02:18.542","source":"Server","level":"LOG","message":"✓ Compiled in 29ms"}
-{"timestamp":"00:03:24.076","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:03:33.389","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:04:59.061","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
-{"timestamp":"00:05:31.895","source":"Server","level":"LOG","message":"✓ Compiled in 12ms"}
-{"timestamp":"00:06:44.168","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:07:12.501","source":"Server","level":"LOG","message":"✓ Compiled in 14ms"}
-{"timestamp":"00:09:59.906","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
-{"timestamp":"00:11:27.499","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:11:35.583","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
-{"timestamp":"00:11:57.894","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:12:12.376","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
-{"timestamp":"00:13:00.118","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:13:39.518","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
-{"timestamp":"00:14:50.814","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:15:07.600","source":"Server","level":"LOG","message":"✓ Compiled in 11ms"}
-{"timestamp":"00:16:41.903","source":"Server","level":"LOG","message":"✓ Compiled in 11ms"}
-{"timestamp":"00:16:56.798","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:25:21.754","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:26:44.659","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
-{"timestamp":"00:27:14.381","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:27:36.475","source":"Server","level":"LOG","message":"✓ Compiled in 16ms"}
-{"timestamp":"00:27:38.855","source":"Server","level":"LOG","message":"✓ Compiled in 12ms"}
-{"timestamp":"00:28:13.714","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
-{"timestamp":"00:28:41.491","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
-{"timestamp":"00:30:49.794","source":"Server","level":"LOG","message":"✓ Compiled in 14ms"}
-{"timestamp":"00:31:25.294","source":"Server","level":"LOG","message":"✓ Compiled in 14ms"}
-{"timestamp":"00:31:35.151","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
-{"timestamp":"00:31:50.982","source":"Server","level":"LOG","message":"✓ Compiled in 14ms"}
-{"timestamp":"00:32:09.544","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:32:34.667","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
-{"timestamp":"00:32:44.144","source":"Server","level":"LOG","message":"✓ Compiled in 14ms"}
-{"timestamp":"00:33:07.291","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
-{"timestamp":"00:33:21.968","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:33:29.715","source":"Server","level":"LOG","message":"✓ Compiled in 12ms"}
-{"timestamp":"00:35:11.321","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:36:19.750","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
-{"timestamp":"00:36:36.427","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:37:01.295","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
-{"timestamp":"00:40:48.287","source":"Server","level":"LOG","message":"✓ Compiled in 10ms"}
-{"timestamp":"00:52:47.906","source":"Server","level":"LOG","message":"✓ Compiled in 16ms"}
-{"timestamp":"00:52:52.586","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:55:17.314","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"00:55:45.208","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:55:56.071","source":"Server","level":"LOG","message":"✓ Compiled in 11ms"}
-{"timestamp":"00:55:58.959","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:56:58.654","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:57:04.785","source":"Server","level":"LOG","message":"✓ Compiled in 9ms"}
-{"timestamp":"00:57:17.815","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
-{"timestamp":"00:57:28.717","source":"Server","level":"LOG","message":"✓ Compiled in 10ms"}
+{"timestamp":"00:00:00.825","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:05:04.185","source":"Server","level":"LOG","message":"  Reload env: .env"}
+{"timestamp":"00:05:38.812","source":"Server","level":"LOG","message":"  Reload env: .env"}
+{"timestamp":"00:05:50.258","source":"Server","level":"LOG","message":"  Reload env: .env"}
+{"timestamp":"00:09:26.735","source":"Server","level":"ERROR","message":"⨯ ./src/app/layout.tsx:19:54\nError: Expected '</', got ';'\n  17 |         <script id=\"google-analytics\" strategy=\"afterInteractive\">\n  18 |             window.dataLayer = window.dataLayer || [];\n> 19 |             function gtag(){dataLayer.push(arguments);}\n     |                                                      ^\n  20 |             gtag('js', new Date());\n  21 |         </script>\n  22 |       </body>\n\nParsing ecmascript source code failed\n\n"}
+{"timestamp":"00:09:27.368","source":"Browser","level":"ERROR","message":"Uncaught Error: ./src/app/layout.tsx:19:54\nError: Expected '</', got ';'\n  17 |         <script id=\"google-analytics\" strategy=\"afterInteractive\">\n  18 |             window.dataLayer = window.dataLayer || [];\n> 19 |             function gtag(){dataLayer.push(arguments);}\n     |                                                      ^\n  20 |             gtag('js', new Date());\n  21 |         </script>\n  22 |       </body>\n\nParsing ecmascript source code failed\n\n"}
+{"timestamp":"00:09:27.368","source":"Server","level":"ERROR","message":"[browser] \"\\u001b[31mUncaught Error: ./src/app/layout.tsx:19:54\\nError: Expected '</', got ';'\\n  17 |         <script id=\\\"google-analytics\\\" strategy=\\\"afterInteractive\\\">\\n  18 |             window.dataLayer = window.dataLayer || [];\\n> 19 |             function gtag(){dataLayer.push(arguments);}\\n     |                                                      ^\\n  20 |             gtag('js', new Date());\\n  21 |         </script>\\n  22 |       </body>\\n\\nParsing ecmascript source code failed\\n\\n\\u001b[39m\""}
+{"timestamp":"00:09:27.407","source":"Browser","level":"ERROR","message":"./src/app/layout.tsx:19:54\nError: Expected '</', got ';'\n  17 |         <script id=\"google-analytics\" strategy=\"afterInteractive\">\n  18 |             window.dataLayer = window.dataLayer || [];\n> 19 |             function gtag(){dataLayer.push(arguments);}\n     |                                                      ^\n  20 |             gtag('js', new Date());\n  21 |         </script>\n  22 |       </body>\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:09:27.407","source":"Server","level":"ERROR","message":"[browser] \"./src/app/layout.tsx:19:54\\nError: Expected '</', got ';'\\n  17 |         <script id=\\\"google-analytics\\\" strategy=\\\"afterInteractive\\\">\\n  18 |             window.dataLayer = window.dataLayer || [];\\n> 19 |             function gtag(){dataLayer.push(arguments);}\\n     |                                                      ^\\n  20 |             gtag('js', new Date());\\n  21 |         </script>\\n  22 |       </body>\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:09:27.451","source":"Browser","level":"ERROR","message":"./src/app/layout.tsx:19:54\nError: Expected '</', got ';'\n  17 |         <script id=\"google-analytics\" strategy=\"afterInteractive\">\n  18 |             window.dataLayer = window.dataLayer || [];\n> 19 |             function gtag(){dataLayer.push(arguments);}\n     |                                                      ^\n  20 |             gtag('js', new Date());\n  21 |         </script>\n  22 |       </body>\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:09:27.451","source":"Server","level":"ERROR","message":"[browser] \"./src/app/layout.tsx:19:54\\nError: Expected '</', got ';'\\n  17 |         <script id=\\\"google-analytics\\\" strategy=\\\"afterInteractive\\\">\\n  18 |             window.dataLayer = window.dataLayer || [];\\n> 19 |             function gtag(){dataLayer.push(arguments);}\\n     |                                                      ^\\n  20 |             gtag('js', new Date());\\n  21 |         </script>\\n  22 |       </body>\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:09:27.683","source":"Browser","level":"ERROR","message":"./src/app/layout.tsx:19:54\nError: Expected '</', got ';'\n  17 |         <script id=\"google-analytics\" strategy=\"afterInteractive\">\n  18 |             window.dataLayer = window.dataLayer || [];\n> 19 |             function gtag(){dataLayer.push(arguments);}\n     |                                                      ^\n  20 |             gtag('js', new Date());\n  21 |         </script>\n  22 |       </body>\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:09:27.683","source":"Server","level":"ERROR","message":"[browser] \"./src/app/layout.tsx:19:54\\nError: Expected '</', got ';'\\n  17 |         <script id=\\\"google-analytics\\\" strategy=\\\"afterInteractive\\\">\\n  18 |             window.dataLayer = window.dataLayer || [];\\n> 19 |             function gtag(){dataLayer.push(arguments);}\\n     |                                                      ^\\n  20 |             gtag('js', new Date());\\n  21 |         </script>\\n  22 |       </body>\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:10:03.176","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
+{"timestamp":"00:10:03.530","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:10:09.344","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:10:53.913","source":"Browser","level":"ERROR","message":"./src/app/layout.tsx:19:54\nError: Expected '</', got ';'\n  17 |         <script id=\"google-analytics\" strategy=\"afterInteractive\">\n  18 |             window.dataLayer = window.dataLayer || [];\n> 19 |             function gtag(){dataLayer.push(arguments);}\n     |                                                      ^\n  20 |             gtag('js', new Date());\n  21 |         </script>\n  22 |       </body>\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:10:53.914","source":"Server","level":"ERROR","message":"[browser] \"./src/app/layout.tsx:19:54\\nError: Expected '</', got ';'\\n  17 |         <script id=\\\"google-analytics\\\" strategy=\\\"afterInteractive\\\">\\n  18 |             window.dataLayer = window.dataLayer || [];\\n> 19 |             function gtag(){dataLayer.push(arguments);}\\n     |                                                      ^\\n  20 |             gtag('js', new Date());\\n  21 |         </script>\\n  22 |       </body>\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:10:53.948","source":"Browser","level":"ERROR","message":"./src/app/layout.tsx:19:54\nError: Expected '</', got ';'\n  17 |         <script id=\"google-analytics\" strategy=\"afterInteractive\">\n  18 |             window.dataLayer = window.dataLayer || [];\n> 19 |             function gtag(){dataLayer.push(arguments);}\n     |                                                      ^\n  20 |             gtag('js', new Date());\n  21 |         </script>\n  22 |       </body>\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:10:53.948","source":"Server","level":"ERROR","message":"[browser] \"./src/app/layout.tsx:19:54\\nError: Expected '</', got ';'\\n  17 |         <script id=\\\"google-analytics\\\" strategy=\\\"afterInteractive\\\">\\n  18 |             window.dataLayer = window.dataLayer || [];\\n> 19 |             function gtag(){dataLayer.push(arguments);}\\n     |                                                      ^\\n  20 |             gtag('js', new Date());\\n  21 |         </script>\\n  22 |       </body>\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:11:44.732","source":"Server","level":"LOG","message":"✓ Compiled in 93ms"}
+{"timestamp":"00:11:49.051","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
+{"timestamp":"00:11:51.865","source":"Browser","level":"ERROR","message":"./src/app/layout.tsx:19:54\nError: Expected '</', got ';'\n  17 |         <Script id=\"google-analytics\" strategy=\"afterInteractive\">\n  18 |             window.dataLayer = window.dataLayer || [];\n> 19 |             function gtag(){dataLayer.push(arguments);}\n     |                                                      ^\n  20 |             gtag('js', new Date());\n  21 |         </Script>\n  22 |       </body>\n\nParsing ecmascript source code failed "}
+{"timestamp":"00:11:51.865","source":"Server","level":"ERROR","message":"[browser] \"./src/app/layout.tsx:19:54\\nError: Expected '</', got ';'\\n  17 |         <Script id=\\\"google-analytics\\\" strategy=\\\"afterInteractive\\\">\\n  18 |             window.dataLayer = window.dataLayer || [];\\n> 19 |             function gtag(){dataLayer.push(arguments);}\\n     |                                                      ^\\n  20 |             gtag('js', new Date());\\n  21 |         </Script>\\n  22 |       </body>\\n\\nParsing ecmascript source code failed\" \"\""}
+{"timestamp":"00:11:52.347","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:12:53.571","source":"Server","level":"LOG","message":"✓ Compiled in 14ms"}
+{"timestamp":"00:15:17.743","source":"Server","level":"LOG","message":"✓ Compiled in 12ms"}
+{"timestamp":"00:15:24.032","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
+{"timestamp":"00:15:40.128","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
