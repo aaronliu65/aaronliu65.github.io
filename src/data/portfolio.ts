@@ -119,7 +119,7 @@ export const projects = [
             "Built bilingual property-sales website front ends with responsive layouts and video content presentation.",
         links: [
             {
-                label: "Eminence Terrace I",
+                label: "Visit website",
                 url: "https://eminenceterrace1.hkhs.com/en",
             },
         ],
@@ -144,33 +144,33 @@ export const projects = [
             "Built bilingual property-sales website front ends with responsive layouts and video content presentation.",
         links: [
             {
-                label: "Sierra Terrace I",
+                label: "Visit website",
                 url: "https://sierraterrace.hkhs.com/en/",
             },
         ],
         colour: "bg-[#BEDBE5] text-[#495e65]",
         cover: "/images/projects/sierraterrace.png",
     },
-    {
-        id: "07",
-        name: "UNI Residence",
-        short: "UNI Residence",
-        category: "Property",
-        client: "Wing Tai Asia",
-        tags: [
-            "Nuxt.js", 
-            "Vue.js", 
-            "fullpage.js", 
-            "Swiper"
-        ],
-        description:
-            "Implemented responsive bilingual property-sales pages with full-screen section navigation and interactive presentation.",
-        links: [
-            { label: "Visit website", url: "https://www.uniresidence.hk/en" },
-        ],
-        colour: "bg-[#dcc3ad] text-[#856140]",
-        cover: "/images/projects/uniresidence.png",
-    },
+    // {
+    //     id: "07",
+    //     name: "UNI Residence",
+    //     short: "UNI Residence",
+    //     category: "Property",
+    //     client: "Wing Tai Asia",
+    //     tags: [
+    //         "Nuxt.js", 
+    //         "Vue.js", 
+    //         "fullpage.js", 
+    //         "Swiper"
+    //     ],
+    //     description:
+    //         "Implemented responsive bilingual property-sales pages with full-screen section navigation and interactive presentation.",
+    //     links: [
+    //         { label: "Visit website", url: "https://www.uniresidence.hk/en" },
+    //     ],
+    //     colour: "bg-[#dcc3ad] text-[#856140]",
+    //     cover: "/images/projects/uniresidence.png",
+    // },
     {
         id: "08",
         name: "Oria",
@@ -205,22 +205,22 @@ export const projects = [
         colour: "bg-[#bedcc4] text-[#1e2c21]",
         cover: "/images/projects/sutton.png",
     },
-    {
-        id: "10",
-        name: "Wan Fau Sin Koon",
-        short: "Wan Fau Sin Koon",
-        category: "NGO",
-        client: "N/A",
-        tags: [
-            "Wordpress"
-        ],
-        description: "",
-        links: [
-            { label: "Visit website", url: "https://www.wanfausinkoon.com.hk" },
-        ],
-        colour: "bg-[#c9d1c0] text-[#576745cc]",
-        cover: "/images/projects/wanfausinkoon.png",
-    },
+    // {
+    //     id: "10",
+    //     name: "Wan Fau Sin Koon",
+    //     short: "Wan Fau Sin Koon",
+    //     category: "NGO",
+    //     client: "N/A",
+    //     tags: [
+    //         "Wordpress"
+    //     ],
+    //     description: "",
+    //     links: [
+    //         { label: "Visit website", url: "https://www.wanfausinkoon.com.hk" },
+    //     ],
+    //     colour: "bg-[#c9d1c0] text-[#576745cc]",
+    //     cover: "/images/projects/wanfausinkoon.png",
+    // },
 ];
 export const skills = [
     {

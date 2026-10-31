@@ -28,14 +28,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$scri
 ;
 const metadata = {
     title: 'Aaron Liu — Front-end Developer | Vue.js & Nuxt.js',
-    description: 'Aaron Liu, a front-end developer in Harpenden, UK. 7+ years of commercial experience, 30+ websites, specialising in Vue.js, Nuxt.js and responsive UI development.'
+    description: 'Aaron Liu is a UK-based front-end developer with 7+ years of commercial experience, specialising in Vue.js, Nuxt.js and responsive website development.'
 };
 function RootLayout({ children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
         lang: "en",
-        className: "scroll-smooth scroll-pt-[95px] motion-reduce:scroll-auto",
+        className: "scroll-smooth scroll-pt-[80px] motion-reduce:scroll-auto",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("body", {
-            className: "m-0 bg-paper font-sans text-[15px] leading-[normal] text-ink selection:bg-[#edb4a5] [&_a]:[-webkit-tap-highlight-color:transparent] [&_button]:cursor-pointer [&_button]:[-webkit-tap-highlight-color:transparent] [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-6 [&_a:focus-visible]:outline-accent [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-offset-6 [&_button:focus-visible]:outline-accent motion-reduce:[&_*]:animate-none motion-reduce:[&_*]:transition-none",
+            className: "m-0 bg-night font-sans text-[15px] leading-[normal] text-white selection:bg-lime selection:text-night [&_a]:[-webkit-tap-highlight-color:transparent] [&_button]:cursor-pointer [&_button]:[-webkit-tap-highlight-color:transparent] [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-4 [&_a:focus-visible]:outline-lime [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-offset-4 [&_button:focus-visible]:outline-lime motion-reduce:[&_*]:animate-none motion-reduce:[&_*]:transition-none",
             children: [
                 children,
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$script$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
