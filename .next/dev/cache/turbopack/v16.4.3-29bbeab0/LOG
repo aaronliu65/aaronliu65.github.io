@@ -205,3 +205,16 @@ FAM | META SEQ | SST SEQ         | RANGE
   1 | 00000109 | 00000074 00000075 00000078 00000089 00000100 OBSOLETE SST
     |          | 00000074 00000075 00000078 00000089 00000100 SST DELETED
     |          | 00000076 00000083 00000094 00000106 META DELETED
+Time 2026-10-31T13:51:14.868178Z
+Commit 00000116 5106 keys in 71ms 201µs
+FAM | META SEQ | SST SEQ         | RANGE
+  0 | 00000114 | 00000113 SST    |                                                                             O                        | c44bdff4074eecdb-c44bdff4074eecdb (0 MiB, fresh, 38 bytes, 1 entries, 0 tombstones)
+  2 | 00000115 | 00000111 SST    | [==================================================================================================] | 0128453b2a32a655-ffe1f5856bfecd9a (0 MiB, fresh, 641518 bytes, 379 entries, 0 tombstones)
+  1 | 00000116 | 00000112 SST    | [==================================================================================================] | 0011270fc2c29aaa-fffae56358468e46 (0 MiB, fresh, 1020952 bytes, 4726 entries, 0 tombstones)
+Time 2026-10-31T14:06:28.024378Z
+Commit 00000124 2458 keys in 43ms 26µs
+FAM | META SEQ | SST SEQ         | RANGE
+  0 | 00000121 | 00000120 SST    |                                                                             O                        | c44bdff4074eecdb-c44bdff4074eecdb (0 MiB, fresh, 38 bytes, 1 entries, 0 tombstones)
+  3 | 00000122 | 00000118 SST    |                                                                                      O               | d9be20c3a3b844a9-d9be20c3a3b844a9 (0 MiB, fresh, 45 bytes, 1 entries, 0 tombstones)
+  2 | 00000123 | 00000117 SST    | [==================================================================================================] | 01517a0add67d42d-ff8a4fa5978e06ac (0 MiB, fresh, 402915 bytes, 235 entries, 0 tombstones)
+  1 | 00000124 | 00000119 SST    | [==================================================================================================] | 00382a87aa704f7f-fff70daa6e60891d (0 MiB, fresh, 643498 bytes, 2221 entries, 0 tombstones)

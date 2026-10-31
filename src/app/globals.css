@@ -28,10 +28,22 @@
 html { background: var(--color-night); }
 body { margin: 0; }
 
-.portfolio-rail { scrollbar-width: thin; scrollbar-color: #c9f449 #222526; }
-.portfolio-rail::-webkit-scrollbar { height: 5px; }
-.portfolio-rail::-webkit-scrollbar-track { background: #222526; }
-.portfolio-rail::-webkit-scrollbar-thumb { background: #c9f449; }
+/* Match the Swiper slide widths before and after its client initialization. */
+.portfolio-rail .portfolio-slide {
+  width: calc(89.285714% - 1.714286px);
+}
+
+@media (min-width: 640px) {
+  .portfolio-rail .portfolio-slide {
+    width: calc(46.511628% - 10.697674px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-rail .portfolio-slide {
+    width: calc(25% - 15px);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

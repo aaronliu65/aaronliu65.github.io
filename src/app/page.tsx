@@ -27,6 +27,9 @@ const sectionTitle =
     "mt-4 font-display text-[clamp(34px,5vw,62px)] leading-[1.02] tracking-[-.055em]";
 
 export default function Home() {
+    const [loaderPhase, setLoaderPhase] = useState<"visible" | "leaving" | "hidden">("visible");
+    const [assetsReady, setAssetsReady] = useState(false);
+    const [swiperReady, setSwiperReady] = useState(false);
     const [selected, setSelected] = useState<(typeof projects)[number] | null>(
         null,
     );
@@ -40,6 +43,45 @@ export default function Home() {
     const heroGridGlowRef = useRef<HTMLDivElement>(null);
     const heroImageRef = useRef<HTMLDivElement>(null);
     const heroSharpImageRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        let active = true;
+        const safetyTimer = window.setTimeout(() => {
+            setAssetsReady(true);
+            setSwiperReady(true);
+        }, 6000);
+
+        const waitForInitialLayout = async () => {
+            const eagerImages = Array.from(document.images).filter(
+                (image) => image.loading === "eager",
+            );
+
+            await Promise.all([
+                document.fonts.ready,
+                ...eagerImages.map((image) => image.decode().catch(() => undefined)),
+            ]);
+            await new Promise<void>((resolve) =>
+                requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+            );
+
+            if (active) setAssetsReady(true);
+        };
+
+        void waitForInitialLayout();
+
+        return () => {
+            active = false;
+            window.clearTimeout(safetyTimer);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!assetsReady || !swiperReady) return;
+
+        setLoaderPhase("leaving");
+        const timer = window.setTimeout(() => setLoaderPhase("hidden"), 550);
+        return () => window.clearTimeout(timer);
+    }, [assetsReady, swiperReady]);
 
     useEffect(() => {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
@@ -187,6 +229,27 @@ export default function Home() {
 
     return (
         <div className="min-h-screen overflow-hidden bg-night text-white">
+            {loaderPhase !== "hidden" && (
+                <div
+                    role="status"
+                    aria-live="polite"
+                    aria-label="Loading portfolio"
+                    aria-hidden={loaderPhase === "leaving"}
+                    className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-night transition-opacity duration-500 ease-out motion-reduce:duration-0 ${loaderPhase === "visible" ? "opacity-100" : "pointer-events-none opacity-0"}`}
+                >
+                    <div className="relative grid size-14 place-items-center" aria-hidden="true">
+                        <span className="absolute inset-0 rounded-full border border-white/15" />
+                        <span className="absolute inset-0 rounded-full border border-transparent border-t-lime motion-safe:animate-spin motion-reduce:animate-none" />
+                        <span className="font-editorial text-[11px] tracking-[.2em]">AL</span>
+                    </div>
+                    <p className="mt-6 text-[9px] font-medium uppercase tracking-[.24em] text-white/55">
+                        Preparing the experience
+                    </p>
+                    <div className="mt-4 h-px w-24 overflow-hidden bg-white/10" aria-hidden="true">
+                        <span className="block h-full w-1/3 animate-pulse bg-lime motion-reduce:animate-none" />
+                    </div>
+                </div>
+            )}
             <a
                 className="fixed -top-24 left-5 z-[100] bg-lime px-4 py-3 text-sm text-night focus:top-4"
                 href="#main"
@@ -251,7 +314,7 @@ export default function Home() {
                                 src="/images/projects/harbourcity.png"
                                 alt=""
                                 fill
-                                priority
+                                loading="eager"
                                 sizes="100vw"
                                 className="scale-[1.03] object-cover object-center opacity-45 blur-[3px]"
                             />
@@ -263,7 +326,7 @@ export default function Home() {
                                     src="/images/projects/harbourcity.png"
                                     alt=""
                                     fill
-                                    priority
+                                    loading="eager"
                                     sizes="100vw"
                                     className="scale-[1.03] object-cover object-center opacity-60"
                                 />
@@ -369,13 +432,12 @@ export default function Home() {
                     </div>
 
                     <SwiperCarousel
-                        className="mt-8 !overflow-hidden !px-7 sm:!px-10 xl:!px-[max(calc((100vw-1488px)/2),56px)]"
+                        className="portfolio-rail mt-8 !overflow-hidden !px-7 sm:!px-10 xl:!px-[max(calc((100vw-1488px)/2),56px)]"
                         modules={[A11y]}
-                        slidesPerView={1.12}
+                        slidesPerView="auto"
                         spaceBetween={16}
                         breakpoints={{
-                            640: { slidesPerView: 2.15, spaceBetween: 20 },
-                            1024: { slidesPerView: 4, spaceBetween: 20 },
+                            640: { spaceBetween: 20 },
                         }}
                         grabCursor
                         watchOverflow={false}
@@ -388,6 +450,7 @@ export default function Home() {
                         }}
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
+                            setSwiperReady(true);
                             setProjectsBeginning(swiper.isBeginning);
                             setProjectsEnd(swiper.isEnd);
                         }}
@@ -397,14 +460,14 @@ export default function Home() {
                         }}
                     >
                         {projects.map((project, index) => (
-                            <SwiperSlide key={project.id} className="!h-auto">
+                            <SwiperSlide key={project.id} className="portfolio-slide !h-auto">
                             <article data-reveal className="group h-full">
                                 <button
                                     className="relative block aspect-[1.65/1] w-full overflow-hidden border border-white/10 bg-[#1c2021] text-left"
                                     onClick={(event) => { triggerRef.current = event.currentTarget; setSelected(project); }}
                                     aria-label={`Open ${project.short} project details`}
                                 >
-                                    <Image src={project.cover} alt={`${project.short} website project screenshot`} fill sizes="(max-width: 640px) 82vw, (max-width: 1024px) 44vw, 25vw" className="object-cover object-top transition duration-700 group-hover:scale-[1.04] group-hover:opacity-80" />
+                                    <Image src={project.cover} alt={`${project.short} website project screenshot`} fill loading={index === 0 ? "eager" : "lazy"} sizes="(max-width: 640px) 82vw, (max-width: 1024px) 44vw, 25vw" className="object-cover object-top transition duration-700 group-hover:scale-[1.04] group-hover:opacity-80" />
                                     <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/5" />
                                     <span className="absolute top-3 left-3 text-[9px] uppercase tracking-[.18em] text-white/85">{String(index + 1).padStart(2, "0")} <span className="text-lime">/</span> {project.category}</span>
                                     <span className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full border border-white/55 bg-black/20 transition-colors group-hover:border-lime group-hover:bg-lime group-hover:text-night"><ArrowUpRight size={15} /></span>
@@ -520,19 +583,21 @@ export default function Home() {
 
             {selected && (
                 <div className="fixed inset-0 z-50 grid place-items-center bg-black/75 p-4 backdrop-blur-sm" onClick={(event) => { if (event.target === event.currentTarget) setSelected(null); }}>
-                    <section ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="project-title" className="relative max-h-[92vh] w-full max-w-3xl overflow-auto border border-white/15 bg-[#111415] p-6 text-white sm:p-8">
-                        <button ref={closeRef} className="absolute top-4 right-4 z-10 grid size-9 place-items-center rounded-full border border-white/25 bg-night/70 transition-colors hover:border-lime hover:text-lime" aria-label="Close project details" onClick={() => setSelected(null)}><X size={17} /></button>
-                        <div className="relative mt-6 aspect-video overflow-hidden border border-white/10 bg-[#202324]">
+                    <section ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="project-title" className="relative max-h-[92vh] w-full max-w-3xl overflow-auto border border-white/15 bg-[#111415] __p-6 text-white __sm:p-8">
+                        <button ref={closeRef} className="absolute top-4 right-4 z-10 grid size-7 place-items-center rounded-full border border-white/25 bg-night/70 transition-colors hover:border-lime hover:text-lime [box-shadow:0_0_20px_rgba(0,0,0,0.45)]" aria-label="Close project details" onClick={() => setSelected(null)}><X size={17} /></button>
+                        <div className="relative __mt-6 aspect-video overflow-hidden border border-white/10 bg-[#202324]">
                             <Image src={selected.cover} alt={`${selected.short} website`} fill sizes="(max-width: 768px) 90vw, 700px" className="object-cover object-top" />
                         </div>
-                        <p className={`${eyebrow} mt-6`}>{selected.category} / Hostlink portfolio</p>
-                        <h2 id="project-title" className="mt-2 font-editorial text-3xl">{selected.name}</h2>
-                        <p className="mt-2 text-[11px] text-white/45">{selected.client}</p>
-                        <p className="mt-5 text-[13px] leading-[1.8] text-white/75">{selected.description || "Responsive front-end implementation and interactive website experience."}</p>
-                        <h3 className="mt-6 text-[11px] font-semibold">My contribution</h3>
-                        <p className="mt-2 text-[11px] leading-[1.8] text-white/50">Front-end setup and implementation, Vue/Nuxt UI development, animations and responsive testing, in collaboration with designers and backend programmers. Visual designs were supplied; CMS connections and data processing were handled by backend programmers.</p>
-                        <div className="mt-5 flex flex-wrap gap-2">{selected.tags.map((tag) => <span key={tag} className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/65">{tag}</span>)}</div>
-                        <div className="mt-6 flex flex-wrap gap-5">{selected.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-lime pb-1 text-[11px] text-lime">{link.label}<ArrowUpRight size={14} /></a>)}</div>
+                        <div className="p-6 sm:p-8">    
+                            <p className={`${eyebrow} __mt-6`}>{selected.category} / Hostlink portfolio</p>
+                            <h2 id="project-title" className="mt-2 font-editorial text-3xl">{selected.name}</h2>
+                            <p className="mt-2 text-[11px] text-white/45">{selected.client}</p>
+                            <p className="mt-5 text-[13px] leading-[1.8] text-white/75">{selected.description || "Responsive front-end implementation and interactive website experience."}</p>
+                            <h3 className="mt-6 text-[11px] font-semibold">My contribution</h3>
+                            <p className="mt-2 text-[11px] leading-[1.8] text-white/50">{"contribution" in selected ? selected.contribution : "Front-end setup and implementation, Vue/Nuxt UI development, animations and responsive testing, in collaboration with designers and backend programmers. Visual designs were supplied; CMS connections and data processing were handled by backend programmers."}</p>
+                            <div className="mt-5 flex flex-wrap gap-2">{selected.tags.map((tag) => <span key={tag} className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/65">{tag}</span>)}</div>
+                            <div className="mt-6 flex flex-wrap gap-5">{selected.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-lime pb-1 text-[11px] text-lime">{link.label}<ArrowUpRight size={14} /></a>)}</div>
+                        </div>
                     </section>
                 </div>
             )}

@@ -1,5 +1,3 @@
-import { convertFlightRouterStateToRouteTree } from "next/dist/client/components/segment-cache/cache";
-
 export const profile = {
     name: "Aaron Liu",
     fullName: "Hin Tung Liu (Aaron)",
@@ -20,13 +18,20 @@ export const projects = [
         category: "Commercial",
         client: "Hong Kong Football Association",
         tags: [
-            "Nuxt.js", 
-            "Vue.js", 
-            "Element UI", 
-            "Swiper"
+            "Nuxt.js",
+            "Vue.js",
+            "JavaScript",
+            "LESS",
+            "Bootstrap",
+            "Element UI",
+            "Flickity",
+            "i18n",
+            "Fancyapps Panzoom",
         ],
         description:
-            "Developed bilingual responsive front-end pages for news, competition information and multi-section navigation, implementing supplied designs for fans and stakeholders.",
+            "Built the HKFA front end from designer-provided layouts, covering all pages and interaction logic for a responsive bilingual football website.",
+        contribution:
+            "Implemented every website page, front-end interaction logic and visual effects from designer-supplied layouts. Built reusable Vue components for similar layouts, using conditional rendering and props to handle their differences and keep future API integration straightforward. Added Traditional Chinese and English support with i18n, Flickity sliders for news and fixtures/results, and Panzoom controls for shop image zoom. Also handled responsive layouts, cross-browser compatibility, image compression, and front-end decisions for interaction and layout behaviour. API, database and shopping functionality were handled by programmers.",
         links: [{ label: "Visit website", url: "https://www.hkfa.com/" }],
         colour: "bg-[#fac9c9] text-[#980918]",
         cover: "/images/projects/hkfa.png",
@@ -38,13 +43,20 @@ export const projects = [
         category: "Property",
         client: "Henderson Land",
         tags: [
-            "Vue.js", 
-            "DaisyUI", 
-            "fullPage.js", 
-            "Swiper", 
+            "Vue 3",
+            "vue3-sfc-loader",
+            "fullPage.js",
+            "Tailwind CSS",
+            "PostCSS CLI",
+            "postcss-nesting",
+            "Swiper",
+            "Fancybox",
+            "Smooth Scrollbar",
         ],
         description:
-            "Implemented an interactive bilingual property website with full-page scrolling, image galleries and a digital sales brochure (flipbook).",
+            "Implemented a bilingual property website from designer-provided layouts, with full-page scrolling, image galleries and a digital sales brochure.",
+        contribution:
+            "Built the front end from designer-supplied layouts for a client-requested static HTML delivery while developing the interface with Vue 3. Used vue3-sfc-loader to compile Vue single-file components at runtime. Structured the experience around fullPage.js and used Tailwind CSS compiled through PostCSS CLI with postcss-nesting. Implemented image galleries with Swiper, image pop-ups with Fancybox, and a customised scrollbar experience with Smooth Scrollbar.",
         links: [
             { label: "Visit website", url: "https://www.thehaddon.com.hk/en/" },
         ],
@@ -56,17 +68,23 @@ export const projects = [
         name: "Harbour City Office",
         short: "Harbour City",
         category: "Commercial",
-        client: "Carbour City",
+        client: "Harbour City",
         tags: [
-            "Nuxt.js", 
-            "Vue.js", 
-            "AOS", 
-            "Swiper", 
-            "DaisyUI", 
-            "Animate.css"
+            "Nuxt.js",
+            "Vue.js",
+            "JavaScript",
+            "Tailwind CSS",
+            "Swiper",
+            "i18n",
+            "Font Awesome",
+            "AOS",
+            "Animate.css",
+            "DaisyUI",
         ],
         description:
-            "Built responsive front-end pages with scroll-triggered visual effects, office galleries, location information and leasing-enquiry UI.",
+            "Built the Harbour City Office website from designer-provided layouts, implementing a responsive Nuxt/Vue front end with interactive Office, Access and leasing-enquiry experiences.",
+        contribution:
+            "Built the website from the ground up based on designer-supplied layouts using Nuxt, Vue, JavaScript, Tailwind CSS, Swiper, i18n and Font Awesome. Added page effects with AOS and Animate.css, and designed and implemented animations for the Office and Access pages. Built the Enquiries form interface with DaisyUI.",
         links: [
             {
                 label: "Visit website",
@@ -119,7 +137,7 @@ export const projects = [
             "Built bilingual property-sales website front ends with responsive layouts and video content presentation.",
         links: [
             {
-                label: "Visit website",
+                label: "Eminence Terrace I",
                 url: "https://eminenceterrace1.hkhs.com/en",
             },
         ],
@@ -144,7 +162,7 @@ export const projects = [
             "Built bilingual property-sales website front ends with responsive layouts and video content presentation.",
         links: [
             {
-                label: "Visit website",
+                label: "Sierra Terrace I",
                 url: "https://sierraterrace.hkhs.com/en/",
             },
         ],
