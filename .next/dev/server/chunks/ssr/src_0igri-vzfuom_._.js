@@ -2064,7 +2064,7 @@ const projects = [
             "Element UI",
             "Flickity",
             "i18n",
-            "Fancyapps Panzoom"
+            "Fancyapps (Panzoom)"
         ],
         description: "Built the HKFA front end from designer-provided layouts, covering all pages and interaction logic for a responsive bilingual football website.",
         contribution: "Implemented every website page, front-end interaction logic and visual effects from designer-supplied layouts. Built reusable Vue components for similar layouts, using conditional rendering and props to handle their differences and keep future API integration straightforward. Added Traditional Chinese and English support with i18n, Flickity sliders for news and fixtures/results, and Panzoom controls for shop image zoom. Also handled responsive layouts, cross-browser compatibility, image compression, and front-end decisions for interaction and layout behaviour. API, database and shopping functionality were handled by programmers.",
@@ -2089,9 +2089,8 @@ const projects = [
             "fullPage.js",
             "Tailwind CSS",
             "PostCSS CLI",
-            "postcss-nesting",
             "Swiper",
-            "Fancybox",
+            "Fancyapps (Fancybox)",
             "Smooth Scrollbar"
         ],
         description: "Implemented a bilingual property website from designer-provided layouts, with full-page scrolling, image galleries and a digital sales brochure.",

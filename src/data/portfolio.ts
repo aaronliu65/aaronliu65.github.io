@@ -26,7 +26,7 @@ export const projects = [
             "Element UI",
             "Flickity",
             "i18n",
-            "Fancyapps Panzoom",
+            "Fancyapps (Panzoom)",
         ],
         description:
             "Built the HKFA front end from designer-provided layouts, covering all pages and interaction logic for a responsive bilingual football website.",
@@ -48,9 +48,8 @@ export const projects = [
             "fullPage.js",
             "Tailwind CSS",
             "PostCSS CLI",
-            "postcss-nesting",
             "Swiper",
-            "Fancybox",
+            "Fancyapps (Fancybox)",
             "Smooth Scrollbar",
         ],
         description:
