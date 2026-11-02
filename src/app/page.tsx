@@ -8,6 +8,7 @@ import {
     ArrowRight,
     ArrowUpRight,
     Download,
+    Menu,
     MonitorSmartphone,
     X,
 } from "lucide-react";
@@ -30,6 +31,7 @@ export default function Home() {
     const [loaderPhase, setLoaderPhase] = useState<"visible" | "leaving" | "hidden">("visible");
     const [assetsReady, setAssetsReady] = useState(false);
     const [swiperReady, setSwiperReady] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [selected, setSelected] = useState<(typeof projects)[number] | null>(
         null,
     );
@@ -326,9 +328,9 @@ export default function Home() {
                 Skip to content
             </a>
 
-            <header data-intro="header" className={`${frame} relative z-20`}>
+            <header data-intro="header" className="relative z-20 mx-auto w-full max-w-[1600px] px-4 sm:px-10 xl:px-14">
                 <div className="flex min-h-[72px] items-center justify-between __gap-5 border-b border-white/10">
-                    <div className="flex items-center justify-between w-full min-h-[72px] gap-8 min-sm:border-r border-white/10  pr-[2.5vw] max-sm:pr-4">
+                    <div className="flex min-h-[72px] w-full items-center justify-between gap-8 border-white/10 pr-[2.5vw] min-sm:border-r max-sm:pr-0">
                         <div className="flex items-center gap-8">
                             <a
                                 href="#top"
@@ -352,6 +354,16 @@ export default function Home() {
                             <a className="transition-colors hover:text-lime" href="#skills">Stack</a>
                             <a className="transition-colors hover:text-lime" href="#contact">Contact</a>
                         </nav>
+                        <button
+                            type="button"
+                            className="hidden size-10 items-center justify-center border border-white/15 text-white transition-colors hover:border-lime hover:text-lime max-sm:inline-flex max-sm:pr-0"
+                            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                            aria-expanded={mobileMenuOpen}
+                            aria-controls="mobile-navigation"
+                            onClick={() => setMobileMenuOpen((open) => !open)}
+                        >
+                            {mobileMenuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+                        </button>
                     </div>
                     <a
                         className="flex items-center gap-8 text-[9px] uppercase tracking-[.18em] text-white/55 max-sm:hidden pl-[2.5vw] max-sm:pl-4"
@@ -362,12 +374,60 @@ export default function Home() {
                     </a>
                 </div>
                 <nav
+                    id="mobile-navigation"
                     aria-label="Mobile navigation"
-                    className="hidden gap-5 overflow-x-auto border-b border-white/10 py-3 text-[10px] text-white/70 max-sm:flex"
+                    aria-hidden={!mobileMenuOpen}
+                    className={`fixed inset-0 z-[70] hidden min-h-svh flex-col overflow-y-auto bg-night px-4 py-5 text-white transition-[opacity,transform,visibility] duration-300 ease-out motion-reduce:transition-none max-sm:flex ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible pointer-events-none translate-y-3 opacity-0"}`}
+                    onKeyDown={(event) => {
+                        if (event.key === "Escape") setMobileMenuOpen(false);
+                    }}
                 >
-                    <a href="#work">Work</a><a href="#about">About</a>
-                    <a href="#experience">Experience</a><a href="#skills">Stack</a>
-                    <a href="#contact">Contact</a>
+                    <div className="flex items-center justify-between border-b border-white/15 pb-5">
+                        <a
+                            href="#top"
+                            className="font-editorial text-[14px] tracking-[.22em]"
+                            tabIndex={mobileMenuOpen ? 0 : -1}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            AARON LIU
+                        </a>
+                        <button
+                            type="button"
+                            className="grid size-10 place-items-center border border-white/15 text-white transition-colors hover:border-lime hover:text-lime"
+                            aria-label="Close navigation menu"
+                            tabIndex={mobileMenuOpen ? 0 : -1}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <X size={18} aria-hidden="true" />
+                        </button>
+                    </div>
+                    <div className="flex flex-1 flex-col justify-center py-10">
+                        {[
+                            ["Work", "#work"],
+                            ["About", "#about"],
+                            ["Experience", "#experience"],
+                            ["Stack", "#skills"],
+                            ["Contact", "#contact"],
+                        ].map(([label, href]) => (
+                            <a
+                                key={href}
+                                className="border-b border-white/10 py-4 font-editorial text-3xl tracking-[-.03em] transition-colors hover:text-lime"
+                                href={href}
+                                tabIndex={mobileMenuOpen ? 0 : -1}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                {label}
+                            </a>
+                        ))}
+                    </div>
+                    <a
+                        className="flex items-center gap-3 border-t border-white/15 pt-5 text-[9px] uppercase tracking-[.18em] text-white/55"
+                        href={`mailto:${profile.email}`}
+                        tabIndex={mobileMenuOpen ? 0 : -1}
+                    >
+                        <span className="size-1.5 rounded-full bg-lime" />
+                        Open to opportunities
+                    </a>
                 </nav>
             </header>
 
@@ -375,7 +435,7 @@ export default function Home() {
                 <section
                     id="top"
                     ref={heroRef}
-                    className="relative isolate min-h-[760px] overflow-hidden bg-night sm:min-h-[650px] md:min-h-[570px] lg:min-h-[540px]"
+                    className="relative isolate min-h-[min(640px,calc(100svh_-_72px))] overflow-hidden bg-night sm:min-h-[620px] md:min-h-[570px] lg:min-h-[540px]"
                 >
                     <div data-intro="hero-media" className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
                         <div ref={heroImageRef} className="absolute inset-0 will-change-transform">
@@ -385,7 +445,7 @@ export default function Home() {
                                 fill
                                 loading="eager"
                                 sizes="100vw"
-                                className="scale-[1.03] object-cover object-[center_75%] opacity-45 blur-[3px]"
+                                className="object-cover object-center opacity-45 blur-0 sm:blur-[3px]"
                             />
                             <div
                                 ref={heroSharpImageRef}
@@ -397,7 +457,7 @@ export default function Home() {
                                     fill
                                     loading="eager"
                                     sizes="100vw"
-                                    className="scale-[1.03] object-cover object-[center_75%] opacity-60"
+                                    className="object-cover object-center opacity-60"
                                 />
                             </div>
                         </div>
@@ -430,7 +490,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className={`${frame} relative z-10 grid min-h-[760px] grid-cols-[.92fr_1.08fr] items-center gap-8 py-10 sm:min-h-[650px] md:min-h-[570px] lg:min-h-[540px] lg:py-12 max-md:grid-cols-1 max-md:gap-8`}>
+                    <div className={`${frame} relative z-10 grid min-h-[min(640px,calc(100svh_-_72px))] grid-cols-[.92fr_1.08fr] items-center gap-8 py-10 sm:min-h-[620px] md:min-h-[570px] lg:min-h-[540px] lg:py-12 max-md:grid-cols-1 max-md:gap-8`}>
                     <div className="relative z-10 py-6">
                         <div className="flex items-center gap-4">
                             <div data-intro="hero-location" className={eyebrow}>
@@ -438,7 +498,7 @@ export default function Home() {
                             </div>
                             <div className="w-26 h-[1px] bg-white/50"></div>
                         </div>
-                        <h1 data-intro="hero-title" className="mt-7 max-w-[690px] font-editorial text-[clamp(54px,8vw,104px)] leading-[.88] tracking-[-.055em]">
+                        <h1 data-intro="hero-title" className="mt-7 max-w-[690px] font-editorial text-[clamp(40px,8.5vw,104px)] leading-[.92] tracking-[-.055em] sm:leading-[.88]">
                             Interfaces<br />with intent<span className="text-lime">.</span>
                         </h1>
                         <h2 data-intro="hero-detail" className="my-5 text-white/75 text-[clamp(16px,2.5vw,18px)] tracking-wider">Front-end Developer <span className="text-lime">/</span> UI/UX Engineer</h2>
@@ -464,10 +524,10 @@ export default function Home() {
                 </section>
 
                 <section id="skills" className="border-y border-white/10 bg-[#101314]">
-                    <div className={`${frame} flex min-h-[68px] items-center gap-8 overflow-x-auto py-4`}>
+                    <div className={`${frame} flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:gap-8`}>
                         <p className="shrink-0 text-[9px] uppercase tracking-[.25em] text-white/40">Technical stack</p>
-                        <span className="h-7 border-l border-white/15" />
-                        <div data-stagger className="flex min-w-max items-center gap-7 text-[11px] text-white/75 sm:gap-9">
+                        <span className="hidden h-7 border-l border-white/15 sm:block" />
+                        <div data-stagger className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-4 text-[11px] text-white/75 sm:gap-x-7 lg:gap-x-9">
                             {toolkit.map((item) => (
                                 <span key={item.name} className="flex items-center gap-2.5">
                                     {item.icon ? (
