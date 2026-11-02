@@ -55,15 +55,18 @@ export default function OpenGraphImage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 25 }}>
             <div
               style={{
+                display: 'flex',
+                flexDirection: 'column',
                 fontFamily: 'Georgia, serif',
                 fontSize: 78,
                 lineHeight: 1.02,
                 letterSpacing: -3,
               }}
             >
-              Interfaces
-              <br />
-              with intent<span style={{ color: '#c9f449' }}>.</span>
+              <span>Interfaces</span>
+              <span>
+                with intent<span style={{ color: '#c9f449' }}>.</span>
+              </span>
             </div>
             <div style={{ color: '#a9aeab', fontSize: 22 }}>
               Vue.js&nbsp; · &nbsp;Nuxt.js&nbsp; · &nbsp;JavaScript&nbsp; · &nbsp;Responsive UI
