@@ -36,9 +36,12 @@ export default function Home() {
     const swiperRef = useRef<SwiperInstance | null>(null);
     const [projectsBeginning, setProjectsBeginning] = useState(true);
     const [projectsEnd, setProjectsEnd] = useState(false);
+    const pageRef = useRef<HTMLDivElement>(null);
     const dialogRef = useRef<HTMLElement>(null);
+    const dialogBackdropRef = useRef<HTMLDivElement>(null);
     const closeRef = useRef<HTMLButtonElement>(null);
     const triggerRef = useRef<HTMLButtonElement | null>(null);
+    const progressRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLElement>(null);
     const heroGridGlowRef = useRef<HTMLDivElement>(null);
     const heroImageRef = useRef<HTMLDivElement>(null);
@@ -88,6 +91,19 @@ export default function Home() {
             return;
         gsap.registerPlugin(ScrollTrigger);
         const context = gsap.context(() => {
+            if (progressRef.current) {
+                gsap.to(progressRef.current, {
+                    scaleX: 1,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: document.documentElement,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.35,
+                    },
+                });
+            }
+
             gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((item) => {
                 gsap.fromTo(
                     item,
@@ -105,9 +121,45 @@ export default function Home() {
                     },
                 );
             });
-        });
+            gsap.utils.toArray<HTMLElement>("[data-stagger]").forEach((group) => {
+                const items = Array.from(group.children).filter(
+                    (item): item is HTMLElement => item instanceof HTMLElement,
+                );
+                if (!items.length) return;
+                gsap.fromTo(
+                    items,
+                    { autoAlpha: 0, y: 20 },
+                    {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.65,
+                        stagger: 0.075,
+                        ease: "power3.out",
+                        scrollTrigger: { trigger: group, start: "top 86%", once: true },
+                    },
+                );
+            });
+        }, pageRef);
         return () => context.revert();
-    }, []);
+    }, [assetsReady, swiperReady]);
+
+    useEffect(() => {
+        if (!assetsReady || !swiperReady) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const context = gsap.context(() => {
+            const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+            intro
+                .fromTo("[data-intro='header']", { autoAlpha: 0, y: -14 }, { autoAlpha: 1, y: 0, duration: 0.65 })
+                .fromTo("[data-intro='hero-media']", { autoAlpha: 0, scale: 1.08 }, { autoAlpha: 1, scale: 1, duration: 1.25, ease: "power2.out" }, 0)
+                .fromTo("[data-intro='hero-location']", { autoAlpha: 0, x: -18 }, { autoAlpha: 1, x: 0, duration: 0.5 }, 0.18)
+                .fromTo("[data-intro='hero-title']", { autoAlpha: 0, y: 38, clipPath: "inset(0 0 35% 0)" }, { autoAlpha: 1, y: 0, clipPath: "inset(0 0 0% 0)", duration: 0.85 }, 0.25)
+                .fromTo("[data-intro='hero-detail']", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.1 }, 0.58)
+                .fromTo("[data-intro='hero-meta']", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.75);
+        }, pageRef);
+
+        return () => context.revert();
+    }, [assetsReady, swiperReady]);
 
     useEffect(() => {
         const section = heroRef.current;
@@ -184,8 +236,23 @@ export default function Home() {
     useEffect(() => {
         if (!selected) return;
         const wasLocked = document.body.classList.contains("overflow-hidden");
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+        ).matches;
         document.body.classList.add("overflow-hidden");
         closeRef.current?.focus();
+        if (!reduceMotion) {
+            gsap.fromTo(
+                dialogBackdropRef.current,
+                { autoAlpha: 0 },
+                { autoAlpha: 1, duration: 0.25, ease: "power2.out" },
+            );
+            gsap.fromTo(
+                dialogRef.current,
+                { autoAlpha: 0, y: 24, scale: 0.975 },
+                { autoAlpha: 1, y: 0, scale: 1, duration: 0.42, ease: "power3.out" },
+            );
+        }
         const onKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") setSelected(null);
             if (event.key !== "Tab") return;
@@ -205,6 +272,7 @@ export default function Home() {
         };
         window.addEventListener("keydown", onKeyDown);
         return () => {
+            gsap.killTweensOf([dialogBackdropRef.current, dialogRef.current]);
             if (!wasLocked) document.body.classList.remove("overflow-hidden");
             window.removeEventListener("keydown", onKeyDown);
             triggerRef.current?.focus();
@@ -228,7 +296,8 @@ export default function Home() {
     ];
 
     return (
-        <div className="min-h-screen overflow-hidden bg-night text-white">
+        <div ref={pageRef} className="min-h-screen overflow-hidden bg-night text-white">
+            <div ref={progressRef} aria-hidden="true" className="fixed inset-x-0 top-0 z-[110] h-[2px] origin-left scale-x-0 bg-lime" />
             {loaderPhase !== "hidden" && (
                 <div
                     role="status"
@@ -257,7 +326,7 @@ export default function Home() {
                 Skip to content
             </a>
 
-            <header className={`${frame} relative z-20`}>
+            <header data-intro="header" className={`${frame} relative z-20`}>
                 <div className="flex min-h-[72px] items-center justify-between __gap-5 border-b border-white/10">
                     <div className="flex items-center justify-between w-full min-h-[72px] gap-8 min-sm:border-r border-white/10  pr-[2.5vw] max-sm:pr-4">
                         <div className="flex items-center gap-8">
@@ -308,7 +377,7 @@ export default function Home() {
                     ref={heroRef}
                     className="relative isolate min-h-[760px] overflow-hidden bg-night sm:min-h-[650px] md:min-h-[570px] lg:min-h-[540px]"
                 >
-                    <div className="absolute inset-0 z-0 overflow-hidden motion-safe:animate-media-in" aria-hidden="true">
+                    <div data-intro="hero-media" className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
                         <div ref={heroImageRef} className="absolute inset-0 will-change-transform">
                             <Image
                                 src="/images/delightterrace_cover.jpg"
@@ -352,8 +421,8 @@ export default function Home() {
                         </div>
                         <div className="absolute inset-0 mx-auto max-w-[1600px] px-7 sm:px-10 xl:px-14">
                             <div className="relative h-full w-full">
-                                <div className="absolute top-7 right-0 text-[9px] uppercase tracking-[.2em] text-white/55 max-md:hidden">Selected project / 04 <span className="ml-5">01 — 07</span></div>
-                                <div className="absolute right-0 bottom-20 max-w-[420px] text-right max-md:hidden">
+                                <div data-intro="hero-meta" className="absolute top-7 right-0 text-[9px] uppercase tracking-[.2em] text-white/55 max-md:hidden">Selected project / 04 <span className="ml-5">01 — 07</span></div>
+                                <div data-intro="hero-meta" className="absolute right-0 bottom-20 max-w-[420px] text-right max-md:hidden">
                                     <p className="text-[9px] uppercase tracking-[.2em] text-white/50">Property · Hong Kong</p>
                                     <p className="mt-2 font-editorial text-3xl text-white/90">Hong Kong Housing Society</p>
                                 </div>
@@ -362,21 +431,21 @@ export default function Home() {
                     </div>
 
                     <div className={`${frame} relative z-10 grid min-h-[760px] grid-cols-[.92fr_1.08fr] items-center gap-8 py-10 sm:min-h-[650px] md:min-h-[570px] lg:min-h-[540px] lg:py-12 max-md:grid-cols-1 max-md:gap-8`}>
-                    <div className="relative z-10 py-6 motion-safe:animate-hero-in">
+                    <div className="relative z-10 py-6">
                         <div className="flex items-center gap-4">
-                            <div className={eyebrow}>
+                            <div data-intro="hero-location" className={eyebrow}>
                                 {profile.location}
                             </div>
                             <div className="w-26 h-[1px] bg-white/50"></div>
                         </div>
-                        <h1 className="mt-7 max-w-[690px] font-editorial text-[clamp(54px,8vw,104px)] leading-[.88] tracking-[-.055em]">
+                        <h1 data-intro="hero-title" className="mt-7 max-w-[690px] font-editorial text-[clamp(54px,8vw,104px)] leading-[.88] tracking-[-.055em]">
                             Interfaces<br />with intent<span className="text-lime">.</span>
                         </h1>
-                        <h2 className="my-5 text-white/75 text-[clamp(16px,2.5vw,18px)] tracking-wider">Front-end Developer <span className="text-lime">/</span> UI/UX Engineer</h2>
-                        <p className="mt-5 max-w-[510px] text-sm leading-[1.8] text-white/65 sm:text-[15px]">
+                        <h2 data-intro="hero-detail" className="my-5 text-white/75 text-[clamp(16px,2.5vw,18px)] tracking-wider">Front-end Developer <span className="text-lime">/</span> UI/UX Engineer</h2>
+                        <p data-intro="hero-detail" className="mt-5 max-w-[510px] text-sm leading-[1.8] text-white/65 sm:text-[15px]">
                             I’m Aaron, a front-end developer with 7+ years of experience building thoughtful, responsive websites with Vue.js and Nuxt.js.
                         </p>
-                        <div className="mt-7 flex flex-wrap items-center gap-7">
+                        <div data-intro="hero-detail" className="mt-7 flex flex-wrap items-center gap-7">
                             <a
                                 href="#work"
                                 className="group inline-flex items-center gap-7 rounded-full bg-lime px-5 py-3 text-[11px] font-semibold text-night transition-transform hover:-translate-y-0.5"
@@ -398,7 +467,7 @@ export default function Home() {
                     <div className={`${frame} flex min-h-[68px] items-center gap-8 overflow-x-auto py-4`}>
                         <p className="shrink-0 text-[9px] uppercase tracking-[.25em] text-white/40">Technical stack</p>
                         <span className="h-7 border-l border-white/15" />
-                        <div className="flex min-w-max items-center gap-7 text-[11px] text-white/75 sm:gap-9">
+                        <div data-stagger className="flex min-w-max items-center gap-7 text-[11px] text-white/75 sm:gap-9">
                             {toolkit.map((item) => (
                                 <span key={item.name} className="flex items-center gap-2.5">
                                     {item.icon ? (
@@ -461,16 +530,37 @@ export default function Home() {
                     >
                         {projects.map((project, index) => (
                             <SwiperSlide key={project.id} className="portfolio-slide !h-auto">
-                            <article data-reveal className="group h-full">
+                            <article
+                                data-reveal
+                                className="group h-full"
+                                onPointerEnter={(event) => {
+                                    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+                                    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                                    if (!canHover || reduceMotion) return;
+                                    const image = event.currentTarget.querySelector("img");
+                                    const arrow = event.currentTarget.querySelector("[data-card-arrow]");
+                                    if (image) gsap.to(image, { scale: 1.045, duration: 0.75, ease: "power3.out", overwrite: "auto" });
+                                    if (arrow) gsap.to(arrow, { x: 4, y: -4, duration: 0.35, ease: "power2.out", overwrite: "auto" });
+                                }}
+                                onPointerLeave={(event) => {
+                                    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+                                    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                                    if (!canHover || reduceMotion) return;
+                                    const image = event.currentTarget.querySelector("img");
+                                    const arrow = event.currentTarget.querySelector("[data-card-arrow]");
+                                    if (image) gsap.to(image, { scale: 1, duration: 0.65, ease: "power3.out", overwrite: "auto" });
+                                    if (arrow) gsap.to(arrow, { x: 0, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto" });
+                                }}
+                            >
                                 <button
                                     className="relative block aspect-[1.65/1] w-full overflow-hidden border border-white/10 bg-[#1c2021] text-left"
                                     onClick={(event) => { triggerRef.current = event.currentTarget; setSelected(project); }}
                                     aria-label={`Open ${project.short} project details`}
                                 >
-                                    <Image src={project.cover} alt={`${project.short} website project screenshot`} fill loading={index === 0 ? "eager" : "lazy"} sizes="(max-width: 640px) 82vw, (max-width: 1024px) 44vw, 25vw" className="object-cover object-top transition duration-700 group-hover:scale-[1.04] group-hover:opacity-80" />
+                                    <Image src={project.cover} alt={`${project.short} website project screenshot`} fill loading={index === 0 ? "eager" : "lazy"} sizes="(max-width: 640px) 82vw, (max-width: 1024px) 44vw, 25vw" className="object-cover object-top" />
                                     <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/5" />
                                     <span className="absolute top-3 left-3 text-[9px] uppercase tracking-[.18em] text-white/85">{String(index + 1).padStart(2, "0")} <span className="text-lime">/</span> {project.category}</span>
-                                    <span className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full border border-white/55 bg-black/20 transition-colors group-hover:border-lime group-hover:bg-lime group-hover:text-night"><ArrowUpRight size={15} /></span>
+                                    <span data-card-arrow className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full border border-white/55 bg-black/20 transition-colors group-hover:border-lime group-hover:bg-lime group-hover:text-night"><ArrowUpRight size={15} /></span>
                                 </button>
                                 <div className="mt-4 flex items-start justify-between gap-4">
                                     <div>
@@ -496,7 +586,7 @@ export default function Home() {
                             <p className={eyebrow}>02 / About & approach</p>
                             <h2 className={sectionTitle}>Code, design<br />and <span className="font-editorial italic text-lime">people.</span></h2>
                         </div>
-                        <div className="grid grid-cols-2 gap-8 max-sm:grid-cols-1">
+                        <div data-stagger className="grid grid-cols-2 gap-8 max-sm:grid-cols-1">
                             <div>
                                 <p className="text-[15px] leading-[1.9] text-white/80">{profile.summary}</p>
                                 <p className="mt-5 text-[12px] leading-[1.9] text-white/50">My earlier UI/UX and graphic design experience helps me work through design handoffs, responsive details and technical feasibility with care.</p>
@@ -523,7 +613,7 @@ export default function Home() {
                             <h2 className={sectionTitle}>A background in<br /><span className="font-editorial italic text-lime">building for the web.</span></h2>
                             <p className="max-w-[360px] text-[11px] leading-[1.8] text-white/50">Front-end delivery, interaction, responsive implementation and thoughtful collaboration.</p>
                         </div>
-                        <div>
+                        <div data-stagger>
                             {experience.map((job, index) => (
                                 <article key={job.company} className="grid grid-cols-[.8fr_1.2fr] gap-10 border-t border-white/15 py-7 max-md:grid-cols-1 max-md:gap-5">
                                     <div>
@@ -545,11 +635,11 @@ export default function Home() {
                     <div className={frame}>
                         <p className={eyebrow}>04 / Skills & tools</p>
                         <h2 className={sectionTitle}>The tools behind <span className="font-editorial italic text-lime">the details.</span></h2>
-                        <div className="mt-9 grid grid-cols-2 gap-x-10 gap-y-7 max-sm:grid-cols-1">
+                        <div data-stagger className="mt-9 grid grid-cols-2 gap-x-10 gap-y-7 max-sm:grid-cols-1">
                             {skills.map((group, index) => (
                                 <div key={group.name} className="border-t border-white/15 pt-4">
                                     <h3 className="text-[12px] font-medium"><span className="mr-3 font-editorial text-lime">0{index + 1}</span>{group.name}</h3>
-                                    <div className="mt-4 flex flex-wrap gap-2">
+                                    <div data-stagger className="mt-4 flex flex-wrap gap-2">
                                         {group.items.map((item) => <span key={item} className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/60">{item}</span>)}
                                     </div>
                                 </div>
@@ -559,7 +649,7 @@ export default function Home() {
                 </section>
 
                 <section id="contact" className="py-16 sm:py-20" data-reveal>
-                    <div className={`${frame} grid grid-cols-[1fr_auto] items-end gap-8 max-sm:grid-cols-1`}>
+                    <div data-stagger className={`${frame} grid grid-cols-[1fr_auto] items-end gap-8 max-sm:grid-cols-1`}>
                         <div>
                             <p className={eyebrow}>05 / Get in touch</p>
                             <h2 className="mt-5 font-editorial text-[clamp(44px,8vw,92px)] leading-[.95] tracking-[-.05em]">Let’s make<br />something <span className="italic text-lime">matter.</span></h2>
@@ -582,22 +672,20 @@ export default function Home() {
             </footer>
 
             {selected && (
-                <div className="fixed inset-0 z-50 grid place-items-center bg-black/75 p-4 backdrop-blur-sm" onClick={(event) => { if (event.target === event.currentTarget) setSelected(null); }}>
-                    <section ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="project-title" className="relative max-h-[92vh] w-full max-w-3xl overflow-auto border border-white/15 bg-[#111415] __p-6 text-white __sm:p-8">
-                        <button ref={closeRef} className="absolute top-4 right-4 z-10 grid size-7 place-items-center rounded-full border border-white/25 bg-night/70 transition-colors hover:border-lime hover:text-lime [box-shadow:0_0_20px_rgba(0,0,0,0.45)]" aria-label="Close project details" onClick={() => setSelected(null)}><X size={17} /></button>
-                        <div className="relative __mt-6 aspect-video overflow-hidden border border-white/10 bg-[#202324]">
+                <div ref={dialogBackdropRef} className="fixed inset-0 z-50 grid place-items-center bg-black/75 p-4 backdrop-blur-sm" onClick={(event) => { if (event.target === event.currentTarget) setSelected(null); }}>
+                    <section ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="project-title" className="relative max-h-[92vh] w-full max-w-3xl overflow-auto border border-white/15 bg-[#111415] p-6 text-white sm:p-8">
+                        <button ref={closeRef} className="absolute top-4 right-4 z-10 grid size-9 place-items-center rounded-full border border-white/25 bg-night/70 transition-colors hover:border-lime hover:text-lime" aria-label="Close project details" onClick={() => setSelected(null)}><X size={17} /></button>
+                        <div className="relative mt-6 aspect-video overflow-hidden border border-white/10 bg-[#202324]">
                             <Image src={selected.cover} alt={`${selected.short} website`} fill sizes="(max-width: 768px) 90vw, 700px" className="object-cover object-top" />
                         </div>
-                        <div className="p-6 sm:p-8">    
-                            <p className={`${eyebrow} __mt-6`}>{selected.category} / Hostlink portfolio</p>
-                            <h2 id="project-title" className="mt-2 font-editorial text-3xl">{selected.name}</h2>
-                            <p className="mt-2 text-[11px] text-white/45">{selected.client}</p>
-                            <p className="mt-5 text-[13px] leading-[1.8] text-white/75">{selected.description || "Responsive front-end implementation and interactive website experience."}</p>
-                            <h3 className="mt-6 text-[11px] font-semibold">My contribution</h3>
-                            <p className="mt-2 text-[11px] leading-[1.8] text-white/50">{"contribution" in selected ? selected.contribution : "Front-end setup and implementation, Vue/Nuxt UI development, animations and responsive testing, in collaboration with designers and backend programmers. Visual designs were supplied; CMS connections and data processing were handled by backend programmers."}</p>
-                            <div className="mt-5 flex flex-wrap gap-2">{selected.tags.map((tag) => <span key={tag} className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/65">{tag}</span>)}</div>
-                            <div className="mt-6 flex flex-wrap gap-5">{selected.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-lime pb-1 text-[11px] text-lime">{link.label}<ArrowUpRight size={14} /></a>)}</div>
-                        </div>
+                        <p className={`${eyebrow} mt-6`}>{selected.category} / Hostlink portfolio</p>
+                        <h2 id="project-title" className="mt-2 font-editorial text-3xl">{selected.name}</h2>
+                        <p className="mt-2 text-[11px] text-white/45">{selected.client}</p>
+                        <p className="mt-5 text-[13px] leading-[1.8] text-white/75">{selected.description || "Responsive front-end implementation and interactive website experience."}</p>
+                        <h3 className="mt-6 text-[11px] font-semibold">My contribution</h3>
+                        <p className="mt-2 text-[11px] leading-[1.8] text-white/50">{"contribution" in selected ? selected.contribution : "Front-end setup and implementation, Vue/Nuxt UI development, animations and responsive testing, in collaboration with designers and backend programmers. Visual designs were supplied; CMS connections and data processing were handled by backend programmers."}</p>
+                        <div className="mt-5 flex flex-wrap gap-2">{selected.tags.map((tag) => <span key={tag} className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/65">{tag}</span>)}</div>
+                        <div className="mt-6 flex flex-wrap gap-5">{selected.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-lime pb-1 text-[11px] text-lime">{link.label}<ArrowUpRight size={14} /></a>)}</div>
                     </section>
                 </div>
             )}

@@ -7,22 +7,6 @@
   --font-sans: 'DM Sans', sans-serif;
   --font-display: 'Manrope', sans-serif;
   --font-editorial: 'Playfair Display', Georgia, serif;
-  --animate-hero-in: hero-in 1s cubic-bezier(.2,.7,.2,1) both;
-  --animate-media-in: media-in 1.2s cubic-bezier(.2,.7,.2,1) .15s both;
-  --animate-reveal: reveal-in .75s cubic-bezier(.2,.7,.2,1) both;
-
-  @keyframes hero-in {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes media-in {
-    from { opacity: 0; clip-path: inset(0 0 0 22%); transform: translateX(18px); }
-    to { opacity: 1; clip-path: inset(0); transform: translateX(0); }
-  }
-  @keyframes reveal-in {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
 }
 
 html { background: var(--color-night); }
@@ -31,6 +15,7 @@ body { margin: 0; }
 /* Match the Swiper slide widths before and after its client initialization. */
 .portfolio-rail .portfolio-slide {
   width: calc(89.285714% - 1.714286px);
+  transition: margin-right 420ms cubic-bezier(.2, .7, .2, 1);
 }
 
 @media (min-width: 640px) {

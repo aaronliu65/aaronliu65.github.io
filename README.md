@@ -2,7 +2,7 @@
 
 This repository contains the source code for my personal portfolio website. It introduces my front-end experience and selected commercial projects, with a clear summary of the work I contributed to each one.
 
-**Live portfolio:** [aaronliu65.github.io](https://aaronliu65.github.io/)
+**Live portfolio:** [aaronliu65.github.io/aaronliu_portfolio](https://aaronliu65.github.io/aaronliu_portfolio/)
 
 ## About me
 
@@ -21,7 +21,7 @@ The portfolio highlights these projects and describes my contribution to each:
 - **Eminence Terrace I and Sierra Terrace I** — Built multilingual front ends, language-aware Sales Information routes, galleries and form interfaces.
 - **Sutton** — Built the multilingual front end, galleries and page effects; used Canvas to remove the background from a video on the Transportation page.
 
-Across the projects, language support was implemented with i18n and YAML translation files. The supported languages varied by website; for Eminence Terrace I and Sierra Terrace I, page-specific translations were kept separately and shared text was placed in `global.yml`.
+All listed projects use i18n and YAML translation files for language support. The supported languages vary by website; for Eminence Terrace I and Sierra Terrace I, page-specific translations are kept separately and shared text is placed in `global.yml`.
 
 For dynamic projects, programmers were responsible for API and database work and CMS development. I worked on the front end and presentation of CMS-managed content. The Haddon was delivered as static HTML, as requested by the client.
 
@@ -29,10 +29,13 @@ For dynamic projects, programmers were responsible for API and database work and
 
 - Responsive layout for desktop and mobile screens
 - Project carousel and project-detail dialogs
-- Scroll-triggered reveals and interactive hero effects
+- GSAP hero entrance sequence and layered image reveal
+- Staggered GSAP scroll reveals for project cards, experience, skills and contact content
+- GSAP hover movement on project cards and animated project-detail dialogs
+- Scroll-linked reading progress line and interactive hero grid effect
 - Loading transition that waits for fonts, eager images and the project slider layout
 - Reduced-motion support
-- Downloadable CV
+- Downloadable CV, updated with the current selected projects and front-end responsibilities
 
 ## Technology
 
