@@ -630,10 +630,6 @@
     margin-top: 70px;
   }
 
-  .mr-0 {
-    margin-right: 0;
-  }
-
   .mr-3 {
     margin-right: calc(var(--spacing) * 3);
   }
@@ -725,11 +721,6 @@
   .size-1\.5 {
     width: calc(var(--spacing) * 1.5);
     height: calc(var(--spacing) * 1.5);
-  }
-
-  .size-6 {
-    width: calc(var(--spacing) * 6);
-    height: calc(var(--spacing) * 6);
   }
 
   .size-7 {
@@ -1655,6 +1646,14 @@
     object-position: 70% 35%;
   }
 
+  .object-\[center_75\%\] {
+    object-position: center 75%;
+  }
+
+  .object-bottom {
+    object-position: bottom;
+  }
+
   .object-center {
     object-position: center;
   }
@@ -2294,11 +2293,6 @@
     mix-blend-mode: screen;
   }
 
-  .shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, #00000040);
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-
   .shadow-\[0_15px_35px_\#303e4d1a\] {
     --tw-shadow: 0 15px 35px var(--tw-shadow-color, #303e4d1a);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -2312,10 +2306,6 @@
   .shadow-xl {
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, #0000001a), 0 8px 10px -6px var(--tw-shadow-color, #0000001a);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-
-  .\[box-shadow\:0_0_20px_rgba\(0\,0\,0\,0\.5\)\] {
-    box-shadow: 0 0 20px #00000080;
   }
 
   .\[box-shadow\:0_0_20px_rgba\(0\,0\,0\,0\.45\)\] {
@@ -2345,18 +2335,6 @@
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
 
-  .transition-\[margin\] {
-    transition-property: margin;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
-  .transition-all {
-    transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
   .transition-colors {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -2373,11 +2351,6 @@
     transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
-  .duration-300 {
-    --tw-duration: .3s;
-    transition-duration: .3s;
   }
 
   .duration-500 {

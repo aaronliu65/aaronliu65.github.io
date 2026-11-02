@@ -221,7 +221,7 @@ export default function Home() {
         { name: "Nuxt.js", icon: "/images/icons/nuxt.svg" },
         { name: "JavaScript", icon: "/images/icons/javascript.svg" },
         { name: "Tailwind CSS", icon: "/images/icons/tailwindcss.svg" },
-        { name: "Swiper", icon: "/images/swiper-logo.svg" },
+        { name: "Swiper", icon: "/images/icons/swiper.svg" },
         { name: "Responsive UI", icon: null },
         { name: "Git", icon: "/images/icons/git.svg" },
         { name: "GitHub", icon: "/images/icons/github.svg" },
@@ -311,24 +311,24 @@ export default function Home() {
                     <div className="absolute inset-0 z-0 overflow-hidden motion-safe:animate-media-in" aria-hidden="true">
                         <div ref={heroImageRef} className="absolute inset-0 will-change-transform">
                             <Image
-                                src="/images/projects/harbourcity.png"
+                                src="/images/delightterrace_cover.jpg"
                                 alt=""
                                 fill
                                 loading="eager"
                                 sizes="100vw"
-                                className="scale-[1.03] object-cover object-center opacity-45 blur-[3px]"
+                                className="scale-[1.03] object-cover object-[center_75%] opacity-45 blur-[3px]"
                             />
                             <div
                                 ref={heroSharpImageRef}
                                 className="pointer-events-none absolute inset-0 z-[1] opacity-0"
                             >
                                 <Image
-                                    src="/images/projects/harbourcity.png"
+                                    src="/images/delightterrace_cover.jpg"
                                     alt=""
                                     fill
                                     loading="eager"
                                     sizes="100vw"
-                                    className="scale-[1.03] object-cover object-center opacity-60"
+                                    className="scale-[1.03] object-cover object-[center_75%] opacity-60"
                                 />
                             </div>
                         </div>
@@ -352,10 +352,10 @@ export default function Home() {
                         </div>
                         <div className="absolute inset-0 mx-auto max-w-[1600px] px-7 sm:px-10 xl:px-14">
                             <div className="relative h-full w-full">
-                                <div className="absolute top-7 right-0 text-[9px] uppercase tracking-[.2em] text-white/55 max-md:hidden">Selected project / 01 <span className="ml-5">01 — 08</span></div>
+                                <div className="absolute top-7 right-0 text-[9px] uppercase tracking-[.2em] text-white/55 max-md:hidden">Selected project / 04 <span className="ml-5">01 — 07</span></div>
                                 <div className="absolute right-0 bottom-20 max-w-[420px] text-right max-md:hidden">
-                                    <p className="text-[9px] uppercase tracking-[.2em] text-white/50">Commercial · Hong Kong</p>
-                                    <p className="mt-2 font-editorial text-3xl text-white/90">Harbour City Office</p>
+                                    <p className="text-[9px] uppercase tracking-[.2em] text-white/50">Property · Hong Kong</p>
+                                    <p className="mt-2 font-editorial text-3xl text-white/90">Hong Kong Housing Society</p>
                                 </div>
                             </div>
                         </div>

@@ -222,7 +222,7 @@ function Home() {
         },
         {
             name: "Swiper",
-            icon: "/images/swiper-logo.svg"
+            icon: "/images/icons/swiper.svg"
         },
         {
             name: "Responsive UI",
@@ -528,12 +528,12 @@ function Home() {
                                         className: "absolute inset-0 will-change-transform",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$image$2d$component$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__Image__as__default$3e$__["default"], {
-                                                src: "/images/projects/harbourcity.png",
+                                                src: "/images/delightterrace_cover.jpg",
                                                 alt: "",
                                                 fill: true,
                                                 loading: "eager",
                                                 sizes: "100vw",
-                                                className: "scale-[1.03] object-cover object-center opacity-45 blur-[3px]"
+                                                className: "scale-[1.03] object-cover object-[center_75%] opacity-45 blur-[3px]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
                                                 lineNumber: 313,
@@ -543,12 +543,12 @@ function Home() {
                                                 ref: heroSharpImageRef,
                                                 className: "pointer-events-none absolute inset-0 z-[1] opacity-0",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$image$2d$component$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__Image__as__default$3e$__["default"], {
-                                                    src: "/images/projects/harbourcity.png",
+                                                    src: "/images/delightterrace_cover.jpg",
                                                     alt: "",
                                                     fill: true,
                                                     loading: "eager",
                                                     sizes: "100vw",
-                                                    className: "scale-[1.03] object-cover object-center opacity-60"
+                                                    className: "scale-[1.03] object-cover object-[center_75%] opacity-60"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 325,
@@ -630,10 +630,10 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "absolute top-7 right-0 text-[9px] uppercase tracking-[.2em] text-white/55 max-md:hidden",
                                                     children: [
-                                                        "Selected project / 01 ",
+                                                        "Selected project / 04 ",
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             className: "ml-5",
-                                                            children: "01 — 08"
+                                                            children: "01 — 07"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
                                                             lineNumber: 355,
@@ -650,7 +650,7 @@ function Home() {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                             className: "text-[9px] uppercase tracking-[.2em] text-white/50",
-                                                            children: "Commercial · Hong Kong"
+                                                            children: "Property · Hong Kong"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
                                                             lineNumber: 357,
@@ -658,7 +658,7 @@ function Home() {
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                             className: "mt-2 font-editorial text-3xl text-white/90",
-                                                            children: "Harbour City Office"
+                                                            children: "Hong Kong Housing Society"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
                                                             lineNumber: 358,
@@ -2064,10 +2064,11 @@ const projects = [
             "Element UI",
             "Flickity",
             "i18n",
+            "YAML",
             "Fancyapps (Panzoom)"
         ],
-        description: "Built the HKFA front end from designer-provided layouts, covering all pages and interaction logic for a responsive bilingual football website.",
-        contribution: "Implemented every website page, front-end interaction logic and visual effects from designer-supplied layouts. Built reusable Vue components for similar layouts, using conditional rendering and props to handle their differences and keep future API integration straightforward. Added Traditional Chinese and English support with i18n, Flickity sliders for news and fixtures/results, and Panzoom controls for shop image zoom. Also handled responsive layouts, cross-browser compatibility, image compression, and front-end decisions for interaction and layout behaviour. API, database and shopping functionality were handled by programmers.",
+        description: "Built the responsive bilingual HKFA website from designer-provided layouts, implementing front-end pages and interactions for news, fixtures, results and league tables.",
+        contribution: "Implemented every website page, front-end interaction logic and visual effects from designer-supplied layouts. Built reusable Vue components for recurring competition content, using conditional rendering and props to handle layout variations and make future API integration straightforward. Managed Traditional Chinese and English translations with i18n and YAML files, added Flickity sliders for news and fixtures/results, built the front-end presentation for league tables, and added Panzoom controls for shop image zoom. Also handled responsive layouts, cross-browser compatibility and image compression. Programmers handled the API, database, CMS for client content updates, and shopping functionality.",
         links: [
             {
                 label: "Visit website",
@@ -2086,6 +2087,8 @@ const projects = [
         tags: [
             "Vue 3",
             "vue3-sfc-loader",
+            "i18n",
+            "YAML",
             "fullPage.js",
             "Tailwind CSS",
             "PostCSS CLI",
@@ -2094,7 +2097,7 @@ const projects = [
             "Smooth Scrollbar"
         ],
         description: "Implemented a bilingual property website from designer-provided layouts, with full-page scrolling, image galleries and a digital sales brochure.",
-        contribution: "Built the front end from designer-supplied layouts for a client-requested static HTML delivery while developing the interface with Vue 3. Used vue3-sfc-loader to compile Vue single-file components at runtime. Structured the experience around fullPage.js and used Tailwind CSS compiled through PostCSS CLI with postcss-nesting. Implemented image galleries with Swiper, image pop-ups with Fancybox, and a customised scrollbar experience with Smooth Scrollbar.",
+        contribution: "Independently handled the full front end, translating designer-supplied layouts for a client-requested static HTML delivery while developing the interface with Vue 3. Managed language support with i18n and YAML translation files, and used vue3-sfc-loader to compile Vue single-file components at runtime. Structured the experience around fullPage.js and used Tailwind CSS compiled through PostCSS CLI with postcss-nesting. Implemented image galleries with Swiper, image pop-ups with Fancybox, and a customised scrollbar experience with Smooth Scrollbar, alongside clubhouse, landscape and project-media sections.",
         links: [
             {
                 label: "Visit website",
@@ -2117,13 +2120,14 @@ const projects = [
             "Tailwind CSS",
             "Swiper",
             "i18n",
+            "YAML",
             "Font Awesome",
             "AOS",
             "Animate.css",
             "DaisyUI"
         ],
-        description: "Built the Harbour City Office website from designer-provided layouts, implementing a responsive Nuxt/Vue front end with interactive Office, Access and leasing-enquiry experiences.",
-        contribution: "Built the website from the ground up based on designer-supplied layouts using Nuxt, Vue, JavaScript, Tailwind CSS, Swiper, i18n and Font Awesome. Added page effects with AOS and Animate.css, and designed and implemented animations for the Office and Access pages. Built the Enquiries form interface with DaisyUI.",
+        description: "Built the Harbour City Office website from designer-provided layouts, with office listings, floor plans, transport information and leasing enquiries.",
+        contribution: "Built the website from the ground up based on designer-supplied layouts using Nuxt, Vue, JavaScript, Tailwind CSS, Swiper, i18n, YAML translation files and Font Awesome. Implemented front-end presentation for the office portfolio, floor plans and specifications, transport routes and journey times, and the Experience page's Lifestyle, Dining, Living and Revelling sections. Independently developed the Experience page front end and its Animate.css/JavaScript effects; also designed and implemented animations for the Office and Access pages. Built the Enquiries form interface with DaisyUI. The programmer-built CMS lets the client update website content.",
         links: [
             {
                 label: "Visit website",
@@ -2143,11 +2147,15 @@ const projects = [
             "Nuxt.js",
             "Vue.js",
             "fullPage.js",
-            "Fancyapps (Panzoom)",
+            "Animate.css",
             "Swiper",
-            "Animate.css"
+            "i18n",
+            "YAML",
+            "Fancyapps Panzoom",
+            "Smooth Scrollbar"
         ],
-        description: "Created a bilingual property-sales front end with full-page scrolling, section navigation, residential development details and responsive layouts.",
+        description: "Led the front-end build of Delight Terrace from tender designer layouts, creating an interactive trilingual property website with location, school, transport, floor-plan and media sections.",
+        contribution: "Led the front-end implementation from the ground up, working directly with the tender designer to discuss website behaviour and the feasibility of translating layouts into a functioning website. Managed Traditional Chinese, Simplified Chinese and English translations with i18n and YAML files. Built interactive sections for location and transport, school networks, design features, floor plans and the media bank. Built with Nuxt.js and Vue.js, using fullPage.js for full-page navigation, Animate.css for effects, Swiper for galleries, Fancyapps Panzoom for image zoom and drag-to-pan, and Smooth Scrollbar for a customised scrollbar. Developed reusable components with conditional rendering and props. Programmers handled the API, database, CMS for client content updates, sales information and form functionality.",
         links: [
             {
                 label: "Visit website",
@@ -2166,12 +2174,17 @@ const projects = [
         tags: [
             "Nuxt.js",
             "Vue.js",
-            "Plyr.js",
+            "i18n",
+            "YAML",
+            "FormKit",
+            "Smooth Scrollbar",
             "Swiper",
+            "Fancyapps Fancybox",
             "Animate.css",
-            "Fancyapps (Fancybox)"
+            "Plyr.js"
         ],
-        description: "Built bilingual property-sales website front ends with responsive layouts and video content presentation.",
+        description: "Built a trilingual property-sales front end with language-aware sales-information routes, image galleries and booking forms.",
+        contribution: "Built the front end from tender designer layouts using Nuxt.js and Vue.js. Managed Traditional Chinese, Simplified Chinese and English translations with i18n and YAML files, keeping page-specific copy separate and shared strings in global.yml. Implemented Sales Information with a shared layout and dynamic paths that preserve the selected language and resolve the different brochure and price-list file paths. Built booking and other form interfaces with FormKit, image galleries with Swiper, full-screen image viewing with Fancyapps Fancybox, video presentation with Plyr.js, effects with Animate.css, and customised scrolling with Smooth Scrollbar. Programmers handled APIs, databases, CMS for client content updates, sales data and form processing.",
         links: [
             {
                 label: "Eminence Terrace I",
@@ -2190,12 +2203,17 @@ const projects = [
         tags: [
             "Nuxt.js",
             "Vue.js",
-            "Plyr.js",
+            "i18n",
+            "YAML",
+            "FormKit",
+            "Smooth Scrollbar",
             "Swiper",
+            "Fancyapps Fancybox",
             "Animate.css",
-            "Fancyapps (Fancybox)"
+            "Plyr.js"
         ],
-        description: "Built bilingual property-sales website front ends with responsive layouts and video content presentation.",
+        description: "Built a trilingual property-sales front end with language-aware sales-information routes, image galleries and booking forms.",
+        contribution: "Built the front end from tender designer layouts using Nuxt.js and Vue.js. Managed Traditional Chinese, Simplified Chinese and English translations with i18n and YAML files, keeping page-specific copy separate and shared strings in global.yml. Implemented Sales Information with a shared layout and dynamic paths that preserve the selected language and resolve the different brochure and price-list file paths. Built booking and other form interfaces with FormKit, image galleries with Swiper, full-screen image viewing with Fancyapps Fancybox, video presentation with Plyr.js, effects with Animate.css, and customised scrolling with Smooth Scrollbar. Programmers handled APIs, databases, CMS for client content updates, sales data and form processing.",
         links: [
             {
                 label: "Sierra Terrace I",
@@ -2225,27 +2243,23 @@ const projects = [
     //     colour: "bg-[#dcc3ad] text-[#856140]",
     //     cover: "/images/projects/uniresidence.png",
     // },
-    {
-        id: "08",
-        name: "Oria",
-        short: "Oria",
-        category: "Property",
-        client: "Hip Shing Hong",
-        tags: [
-            "Nuxt.js",
-            "Vue.js",
-            "Swiper"
-        ],
-        description: "Developed responsive bilingual property-sales pages with full-screen section navigation, interactive presentation and video content.",
-        links: [
-            {
-                label: "Visit website",
-                url: "https://oria.hk/en"
-            }
-        ],
-        colour: "bg-[#a3c0d6] text-[#295576]",
-        cover: "/images/projects/oria.png"
-    },
+    // {
+    //     id: "08",
+    //     name: "Oria",
+    //     short: "Oria",
+    //     category: "Property",
+    //     client: "Hip Shing Hong",
+    //     tags: [
+    //         "Nuxt.js", 
+    //         "Vue.js", 
+    //         "Swiper"
+    //     ],
+    //     description:
+    //         "Developed responsive bilingual property-sales pages with full-screen section navigation, interactive presentation and video content.",
+    //     links: [{ label: "Visit website", url: "https://oria.hk/en" }],
+    //     colour: "bg-[#a3c0d6] text-[#295576]",
+    //     cover: "/images/projects/oria.png",
+    // },
     {
         id: "09",
         name: "Sutton",
@@ -2255,10 +2269,17 @@ const projects = [
         tags: [
             "Nuxt.js",
             "Vue.js",
+            "JavaScript",
+            "i18n",
+            "YAML",
+            "Swiper",
+            "Fancyapps Fancybox",
             "AOS",
-            "Swiper"
+            "Animate.css",
+            "Canvas"
         ],
-        description: "",
+        description: "Built the Sutton front end from tender designer layouts, creating a trilingual property website with interactive galleries, scroll effects and a custom Living Circle video treatment.",
+        contribution: "Built the front end from the ground up based on tender designer layouts, discussing website behaviour and layout-to-web feasibility with the design team. Developed with Nuxt.js and Vue.js, managing Traditional Chinese, Simplified Chinese and English translations with i18n and YAML files. Used Swiper for galleries and selected page content, Fancyapps Fancybox to enlarge selected images in a full-screen view, and AOS, Animate.css and JavaScript for page effects. Canvas was used only for the Living Circle video on the Transportation page to remove its background colour and prevent browser-specific colour mismatches; other imagery used PNGs. The programmer-built CMS lets the client update website content.",
         links: [
             {
                 label: "Visit website",
@@ -2296,6 +2317,7 @@ const skills = [
         name: "Interaction & media",
         items: [
             "Custom animations & transitions",
+            "HTML Canvas",
             "Swiper",
             "fullPage.js",
             "AOS",
@@ -2311,6 +2333,7 @@ const skills = [
         name: "Tools & workflow",
         items: [
             "npm",
+            "i18n / YAML translation files",
             "Git / GitHub",
             "Branching & merging",
             "GitHub Actions — development-server deployment"
@@ -2319,6 +2342,7 @@ const skills = [
     {
         name: "Quality & collaboration",
         items: [
+            "Chrome, Microsoft Edge (Windows) & Safari support",
             "Responsive & cross-browser testing",
             "CMS content validation",
             "Lighthouse",
@@ -2334,12 +2358,14 @@ const experience = [
         dates: "Apr 2018 – Jun 2025",
         label: "Core front-end experience",
         points: [
-            "Took primary ownership of front-end development for 30+ commercial websites across property sales, corporate, e-commerce and organisational sites.",
+            "Worked in a small business with a two-person front-end team, independently owning the front-end delivery of each assigned project across 30+ commercial websites.",
             "Started Nuxt projects from scratch, configuring the front end and installing packages such as Tailwind CSS and Swiper to meet project requirements.",
             "Translated approved designs into responsive Vue/Nuxt pages, discussing feasibility with designers and recommending practical changes.",
-            "Built reusable, data-driven Vue components, custom animations, visual effects and interactive behaviours.",
-            "Coordinated with backend programmers on CMS requirements and content presentation; backend programmers handled CMS connections and data processing.",
-            "Validated CMS-managed content and repeatedly tested layouts, interactions and forms across desktop, tablet, mobile and browsers.",
+            "Built reusable Vue components where layouts allowed, and used props and conditional logic to handle page-specific variations; also created custom animations and interactive behaviours.",
+            "Worked with programmers responsible for APIs, databases and CMS development; the CMS lets clients update content on dynamic websites. Selected reusable components according to each project's layout needs.",
+            "Implemented language support across assigned websites with i18n and YAML translation files, with the supported languages varying by project.",
+            "Supported common Hong Kong site languages—Traditional Chinese, Simplified Chinese and English—and tested browser compatibility for Chrome, Microsoft Edge on Windows and Safari.",
+            "Validated CMS-managed content and repeatedly tested layouts, interactions and forms across desktop, tablet and mobile.",
             "Used Git and GitHub Actions to support automated development-server deployments, retaining previous versions for recovery.",
             "Applied metadata, sitemaps, image optimisation and Lighthouse checks, and collaborated with clients and tender teams."
         ]
