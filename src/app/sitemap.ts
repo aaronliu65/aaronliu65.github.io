@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl = 'https://aaronliu65.github.io/aaronliu_portfolio/';
+export const dynamic = 'force-static';
+
+const siteUrl = 'https://aaronliu65.github.io/';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
