@@ -13,6 +13,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const imageModule = {
     alt: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$opengraph$2d$image$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["alt"],
     contentType: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$opengraph$2d$image$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["contentType"],
+    dynamic: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$opengraph$2d$image$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["dynamic"],
     size: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$opengraph$2d$image$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["size"]
 };
 async function __TURBOPACK__default__export__(props) {
@@ -22,7 +23,7 @@ async function __TURBOPACK__default__export__(props) {
         const data = {
             alt: imageMetadata.alt,
             type: imageMetadata.contentType || 'image/png',
-            url: imageUrl + (idParam ? '/' + idParam : '') + '?' + "1b3a88179f70aa35"
+            url: imageUrl + (idParam ? '/' + idParam : '') + '?' + "b6f59a8c8e9b6730"
         };
         const { size } = imageMetadata;
         if (size) {
@@ -50,6 +51,8 @@ __turbopack_context__.s([
     ()=>contentType,
     "default",
     ()=>OpenGraphImage,
+    "dynamic",
+    ()=>dynamic,
     "size",
     ()=>size
 ]);
@@ -57,6 +60,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$og$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/og.js [app-rsc] (ecmascript)");
 ;
 ;
+const dynamic = 'force-static';
 const alt = 'Aaron Liu — Front-end Developer Portfolio';
 const size = {
     width: 1200,
@@ -97,7 +101,7 @@ function OpenGraphImage() {
                         children: "•"
                     }, void 0, false, {
                         fileName: "[project]/src/app/opengraph-image.tsx",
-                        lineNumber: 36,
+                        lineNumber: 38,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -109,13 +113,13 @@ function OpenGraphImage() {
                         children: "FRONT-END DEVELOPER"
                     }, void 0, false, {
                         fileName: "[project]/src/app/opengraph-image.tsx",
-                        lineNumber: 37,
+                        lineNumber: 39,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/opengraph-image.tsx",
-                lineNumber: 26,
+                lineNumber: 28,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -134,33 +138,44 @@ function OpenGraphImage() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 style: {
+                                    display: 'flex',
+                                    flexDirection: 'column',
                                     fontFamily: 'Georgia, serif',
                                     fontSize: 78,
                                     lineHeight: 1.02,
                                     letterSpacing: -3
                                 },
                                 children: [
-                                    "Interfaces",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
-                                        fileName: "[project]/src/app/opengraph-image.tsx",
-                                        lineNumber: 65,
-                                        columnNumber: 15
-                                    }, this),
-                                    "with intent",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        style: {
-                                            color: '#c9f449'
-                                        },
-                                        children: "."
+                                        children: "Interfaces"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/opengraph-image.tsx",
-                                        lineNumber: 66,
-                                        columnNumber: 26
+                                        lineNumber: 68,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: [
+                                            "with intent",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                style: {
+                                                    color: '#c9f449'
+                                                },
+                                                children: "."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/opengraph-image.tsx",
+                                                lineNumber: 70,
+                                                columnNumber: 28
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/opengraph-image.tsx",
+                                        lineNumber: 69,
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/opengraph-image.tsx",
-                                lineNumber: 56,
+                                lineNumber: 58,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -171,13 +186,13 @@ function OpenGraphImage() {
                                 children: "Vue.js  ·  Nuxt.js  ·  JavaScript  ·  Responsive UI"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/opengraph-image.tsx",
-                                lineNumber: 68,
+                                lineNumber: 73,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/opengraph-image.tsx",
-                        lineNumber: 55,
+                        lineNumber: 57,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -196,13 +211,13 @@ function OpenGraphImage() {
                         children: "A."
                     }, void 0, false, {
                         fileName: "[project]/src/app/opengraph-image.tsx",
-                        lineNumber: 73,
+                        lineNumber: 78,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/opengraph-image.tsx",
-                lineNumber: 48,
+                lineNumber: 50,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -220,26 +235,26 @@ function OpenGraphImage() {
                         children: "PORTFOLIO / HARPENDEN, UK"
                     }, void 0, false, {
                         fileName: "[project]/src/app/opengraph-image.tsx",
-                        lineNumber: 102,
+                        lineNumber: 107,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "THOUGHTFUL CODE. MEANINGFUL EXPERIENCES."
                     }, void 0, false, {
                         fileName: "[project]/src/app/opengraph-image.tsx",
-                        lineNumber: 103,
+                        lineNumber: 108,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/opengraph-image.tsx",
-                lineNumber: 91,
+                lineNumber: 96,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/opengraph-image.tsx",
-        lineNumber: 10,
+        lineNumber: 12,
         columnNumber: 7
     }, this), size);
 }

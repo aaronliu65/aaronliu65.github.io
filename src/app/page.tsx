@@ -28,7 +28,9 @@ const sectionTitle =
     "mt-4 font-display text-[clamp(34px,5vw,62px)] leading-[1.02] tracking-[-.055em]";
 
 export default function Home() {
-    const [loaderPhase, setLoaderPhase] = useState<"visible" | "leaving" | "hidden">("visible");
+    const [loaderPhase, setLoaderPhase] = useState<
+        "visible" | "leaving" | "hidden"
+    >("visible");
     const [assetsReady, setAssetsReady] = useState(false);
     const [swiperReady, setSwiperReady] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,10 +65,14 @@ export default function Home() {
 
             await Promise.all([
                 document.fonts.ready,
-                ...eagerImages.map((image) => image.decode().catch(() => undefined)),
+                ...eagerImages.map((image) =>
+                    image.decode().catch(() => undefined),
+                ),
             ]);
             await new Promise<void>((resolve) =>
-                requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+                requestAnimationFrame(() =>
+                    requestAnimationFrame(() => resolve()),
+                ),
             );
 
             if (active) setAssetsReady(true);
@@ -123,41 +129,88 @@ export default function Home() {
                     },
                 );
             });
-            gsap.utils.toArray<HTMLElement>("[data-stagger]").forEach((group) => {
-                const items = Array.from(group.children).filter(
-                    (item): item is HTMLElement => item instanceof HTMLElement,
-                );
-                if (!items.length) return;
-                gsap.fromTo(
-                    items,
-                    { autoAlpha: 0, y: 20 },
-                    {
-                        autoAlpha: 1,
-                        y: 0,
-                        duration: 0.65,
-                        stagger: 0.075,
-                        ease: "power3.out",
-                        scrollTrigger: { trigger: group, start: "top 86%", once: true },
-                    },
-                );
-            });
+            gsap.utils
+                .toArray<HTMLElement>("[data-stagger]")
+                .forEach((group) => {
+                    const items = Array.from(group.children).filter(
+                        (item): item is HTMLElement =>
+                            item instanceof HTMLElement,
+                    );
+                    if (!items.length) return;
+                    gsap.fromTo(
+                        items,
+                        { autoAlpha: 0, y: 20 },
+                        {
+                            autoAlpha: 1,
+                            y: 0,
+                            duration: 0.65,
+                            stagger: 0.075,
+                            ease: "power3.out",
+                            scrollTrigger: {
+                                trigger: group,
+                                start: "top 86%",
+                                once: true,
+                            },
+                        },
+                    );
+                });
         }, pageRef);
         return () => context.revert();
     }, [assetsReady, swiperReady]);
 
     useEffect(() => {
         if (!assetsReady || !swiperReady) return;
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+            return;
 
         const context = gsap.context(() => {
             const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
             intro
-                .fromTo("[data-intro='header']", { autoAlpha: 0, y: -14 }, { autoAlpha: 1, y: 0, duration: 0.65 })
-                .fromTo("[data-intro='hero-media']", { autoAlpha: 0, scale: 1.08 }, { autoAlpha: 1, scale: 1, duration: 1.25, ease: "power2.out" }, 0)
-                .fromTo("[data-intro='hero-location']", { autoAlpha: 0, x: -18 }, { autoAlpha: 1, x: 0, duration: 0.5 }, 0.18)
-                .fromTo("[data-intro='hero-title']", { autoAlpha: 0, y: 38, clipPath: "inset(0 0 35% 0)" }, { autoAlpha: 1, y: 0, clipPath: "inset(0 0 0% 0)", duration: 0.85 }, 0.25)
-                .fromTo("[data-intro='hero-detail']", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.1 }, 0.58)
-                .fromTo("[data-intro='hero-meta']", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.75);
+                .fromTo(
+                    "[data-intro='header']",
+                    { autoAlpha: 0, y: -14 },
+                    { autoAlpha: 1, y: 0, duration: 0.65 },
+                )
+                .fromTo(
+                    "[data-intro='hero-media']",
+                    { autoAlpha: 0, scale: 1.08 },
+                    {
+                        autoAlpha: 1,
+                        scale: 1,
+                        duration: 1.25,
+                        ease: "power2.out",
+                    },
+                    0,
+                )
+                .fromTo(
+                    "[data-intro='hero-location']",
+                    { autoAlpha: 0, x: -18 },
+                    { autoAlpha: 1, x: 0, duration: 0.5 },
+                    0.18,
+                )
+                .fromTo(
+                    "[data-intro='hero-title']",
+                    { autoAlpha: 0, y: 38, clipPath: "inset(0 0 35% 0)" },
+                    {
+                        autoAlpha: 1,
+                        y: 0,
+                        clipPath: "inset(0 0 0% 0)",
+                        duration: 0.85,
+                    },
+                    0.25,
+                )
+                .fromTo(
+                    "[data-intro='hero-detail']",
+                    { autoAlpha: 0, y: 16 },
+                    { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.1 },
+                    0.58,
+                )
+                .fromTo(
+                    "[data-intro='hero-meta']",
+                    { autoAlpha: 0, y: 12 },
+                    { autoAlpha: 1, y: 0, duration: 0.6 },
+                    0.75,
+                );
         }, pageRef);
 
         return () => context.revert();
@@ -252,7 +305,13 @@ export default function Home() {
             gsap.fromTo(
                 dialogRef.current,
                 { autoAlpha: 0, y: 24, scale: 0.975 },
-                { autoAlpha: 1, y: 0, scale: 1, duration: 0.42, ease: "power3.out" },
+                {
+                    autoAlpha: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.42,
+                    ease: "power3.out",
+                },
             );
         }
         const onKeyDown = (event: KeyboardEvent) => {
@@ -298,8 +357,15 @@ export default function Home() {
     ];
 
     return (
-        <div ref={pageRef} className="min-h-screen overflow-hidden bg-night text-white">
-            <div ref={progressRef} aria-hidden="true" className="fixed inset-x-0 top-0 z-[110] h-[2px] origin-left scale-x-0 bg-lime" />
+        <div
+            ref={pageRef}
+            className="min-h-screen overflow-hidden bg-night text-white"
+        >
+            <div
+                ref={progressRef}
+                aria-hidden="true"
+                className="fixed inset-x-0 top-0 z-[110] h-[2px] origin-left scale-x-0 bg-lime"
+            />
             {loaderPhase !== "hidden" && (
                 <div
                     role="status"
@@ -308,15 +374,23 @@ export default function Home() {
                     aria-hidden={loaderPhase === "leaving"}
                     className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-night transition-opacity duration-500 ease-out motion-reduce:duration-0 ${loaderPhase === "visible" ? "opacity-100" : "pointer-events-none opacity-0"}`}
                 >
-                    <div className="relative grid size-14 place-items-center" aria-hidden="true">
+                    <div
+                        className="relative grid size-14 place-items-center"
+                        aria-hidden="true"
+                    >
                         <span className="absolute inset-0 rounded-full border border-white/15" />
                         <span className="absolute inset-0 rounded-full border border-transparent border-t-lime motion-safe:animate-spin motion-reduce:animate-none" />
-                        <span className="font-editorial text-[11px] tracking-[.2em]">AL</span>
+                        <span className="font-editorial text-[11px] tracking-[.2em]">
+                            AL
+                        </span>
                     </div>
                     <p className="mt-6 text-[9px] font-medium uppercase tracking-[.24em] text-white/55">
                         Preparing the experience
                     </p>
-                    <div className="mt-4 h-px w-24 overflow-hidden bg-white/10" aria-hidden="true">
+                    <div
+                        className="mt-4 h-px w-24 overflow-hidden bg-white/10"
+                        aria-hidden="true"
+                    >
                         <span className="block h-full w-1/3 animate-pulse bg-lime motion-reduce:animate-none" />
                     </div>
                 </div>
@@ -328,7 +402,10 @@ export default function Home() {
                 Skip to content
             </a>
 
-            <header data-intro="header" className="relative z-20 mx-auto w-full max-w-[1600px] px-4 sm:px-10 xl:px-14">
+            <header
+                data-intro="header"
+                className="relative z-20 mx-auto w-full max-w-[1600px] px-4 sm:px-10 xl:px-14"
+            >
                 <div className="flex min-h-[72px] items-center justify-between __gap-5 border-b border-white/10">
                     <div className="flex min-h-[72px] w-full items-center justify-between gap-8 border-white/10 pr-[2.5vw] min-sm:border-r max-sm:pr-0">
                         <div className="flex items-center gap-8">
@@ -341,28 +418,63 @@ export default function Home() {
                             </a>
                             <div className="flex items-center gap-3 max-lg:hidden">
                                 <div className="text-lime">•</div>
-                                <div className="text-xs text-white/45">Front-end Developer</div>
+                                <div className="text-xs text-white/45">
+                                    Front-end Developer
+                                </div>
                             </div>
-                        </div>                   
+                        </div>
                         <nav
                             aria-label="Main navigation"
                             className="flex items-center gap-7 text-[11px] text-white/70 max-md:gap-4 max-sm:hidden"
                         >
-                            <a className="transition-colors hover:text-lime" href="#work">Work</a>
-                            <a className="transition-colors hover:text-lime" href="#about">About</a>
-                            <a className="transition-colors hover:text-lime" href="#experience">Experience</a>
-                            <a className="transition-colors hover:text-lime" href="#skills">Stack</a>
-                            <a className="transition-colors hover:text-lime" href="#contact">Contact</a>
+                            <a
+                                className="transition-colors hover:text-lime"
+                                href="#work"
+                            >
+                                Work
+                            </a>
+                            <a
+                                className="transition-colors hover:text-lime"
+                                href="#about"
+                            >
+                                About
+                            </a>
+                            <a
+                                className="transition-colors hover:text-lime"
+                                href="#experience"
+                            >
+                                Experience
+                            </a>
+                            <a
+                                className="transition-colors hover:text-lime"
+                                href="#skills"
+                            >
+                                Stack
+                            </a>
+                            <a
+                                className="transition-colors hover:text-lime"
+                                href="#contact"
+                            >
+                                Contact
+                            </a>
                         </nav>
                         <button
                             type="button"
                             className="hidden size-10 items-center justify-center border border-white/15 text-white transition-colors hover:border-lime hover:text-lime max-sm:inline-flex max-sm:pr-0"
-                            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                            aria-label={
+                                mobileMenuOpen
+                                    ? "Close navigation menu"
+                                    : "Open navigation menu"
+                            }
                             aria-expanded={mobileMenuOpen}
                             aria-controls="mobile-navigation"
                             onClick={() => setMobileMenuOpen((open) => !open)}
                         >
-                            {mobileMenuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+                            {mobileMenuOpen ? (
+                                <X size={18} aria-hidden="true" />
+                            ) : (
+                                <Menu size={18} aria-hidden="true" />
+                            )}
                         </button>
                     </div>
                     <a
@@ -370,7 +482,7 @@ export default function Home() {
                         href={`mailto:${profile.email}`}
                     >
                         <span className="size-1.5 min-w-[6px] rounded-full bg-lime" />
-                            Open to opportunities
+                        Open to opportunities
                     </a>
                 </div>
                 <nav
@@ -437,8 +549,15 @@ export default function Home() {
                     ref={heroRef}
                     className="relative isolate min-h-[min(640px,calc(100svh_-_72px))] overflow-hidden bg-night sm:min-h-[620px] md:min-h-[570px] lg:min-h-[540px]"
                 >
-                    <div data-intro="hero-media" className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-                        <div ref={heroImageRef} className="absolute inset-0 will-change-transform">
+                    <div
+                        data-intro="hero-media"
+                        className="absolute inset-0 z-0 overflow-hidden"
+                        aria-hidden="true"
+                    >
+                        <div
+                            ref={heroImageRef}
+                            className="absolute inset-0 will-change-transform"
+                        >
                             <Image
                                 src="/images/delightterrace_cover.jpg"
                                 alt=""
@@ -477,69 +596,162 @@ export default function Home() {
                             <span className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_71px,rgba(198,239,80,0.22)_72px,transparent_73px)]" />
                         </div>
                         <div className="absolute inset-0 grid grid-cols-12 opacity-15">
-                            {Array.from({ length: 13 }, (_, i) => <span key={i} className="border-r border-white/30" />)}
+                            {Array.from({ length: 13 }, (_, i) => (
+                                <span
+                                    key={i}
+                                    className="border-r border-white/30"
+                                />
+                            ))}
                         </div>
                         <div className="absolute inset-0 mx-auto max-w-[1600px] px-7 sm:px-10 xl:px-14">
                             <div className="relative h-full w-full">
-                                <div data-intro="hero-meta" className="absolute top-7 right-0 text-[9px] uppercase tracking-[.2em] text-white/55 max-md:hidden">Selected project / 04 <span className="ml-5">01 — 07</span></div>
-                                <div data-intro="hero-meta" className="absolute right-0 bottom-20 max-w-[420px] text-right max-md:hidden">
-                                    <p className="text-[9px] uppercase tracking-[.2em] text-white/50">Property · Hong Kong</p>
-                                    <p className="mt-2 font-editorial text-3xl text-white/90">Hong Kong Housing Society</p>
+                                <div
+                                    data-intro="hero-meta"
+                                    className="absolute top-7 right-0 text-[9px] uppercase tracking-[.2em] text-white/55 max-md:hidden"
+                                >
+                                    Selected project / 04{" "}
+                                    <span className="ml-5">01 — 07</span>
+                                </div>
+                                <div
+                                    data-intro="hero-meta"
+                                    className="absolute right-0 bottom-20 max-w-[420px] text-right max-md:hidden"
+                                >
+                                    <p className="text-[9px] uppercase tracking-[.2em] text-white/50">
+                                        Property · Hong Kong
+                                    </p>
+                                    <p className="mt-2 font-editorial text-3xl text-white/90">
+                                        Hong Kong Housing Society
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className={`${frame} relative z-10 grid min-h-[min(640px,calc(100svh_-_72px))] grid-cols-[.92fr_1.08fr] items-center gap-8 py-10 sm:min-h-[620px] md:min-h-[570px] lg:min-h-[540px] lg:py-12 max-md:grid-cols-1 max-md:gap-8`}>
-                    <div className="relative z-10 py-6">
-                        <div className="flex items-center gap-4">
-                            <div data-intro="hero-location" className={eyebrow}>
-                                {profile.location}
+                    <div
+                        className={`${frame} relative z-10 grid min-h-[min(640px,calc(100svh_-_72px))] grid-cols-[.92fr_1.08fr] items-center gap-8 py-10 sm:min-h-[620px] md:min-h-[570px] lg:min-h-[540px] lg:py-12 max-md:grid-cols-1 max-md:gap-8`}
+                    >
+                        <div className="relative z-10 py-6">
+                            <div className="flex items-center gap-4">
+                                <div
+                                    data-intro="hero-location"
+                                    className={eyebrow}
+                                >
+                                    {profile.location}
+                                </div>
+                                <div className="w-26 h-[1px] bg-white/50"></div>
                             </div>
-                            <div className="w-26 h-[1px] bg-white/50"></div>
-                        </div>
-                        <h1 data-intro="hero-title" className="mt-7 max-w-[690px] font-editorial text-[clamp(40px,8.5vw,104px)] leading-[.92] tracking-[-.055em] sm:leading-[.88]">
-                            Interfaces<br />with intent<span className="text-lime">.</span>
-                        </h1>
-                        <h2 data-intro="hero-detail" className="my-5 text-white/75 text-[clamp(16px,2.5vw,18px)] tracking-wider">Front-end Developer <span className="text-lime">/</span> UI/UX Engineer</h2>
-                        <p data-intro="hero-detail" className="mt-5 max-w-[510px] text-sm leading-[1.8] text-white/65 sm:text-[15px]">
-                            I’m Aaron, a front-end developer with 7+ years of experience building thoughtful, responsive websites with Vue.js and Nuxt.js.
-                        </p>
-                        <div data-intro="hero-detail" className="mt-7 flex flex-wrap items-center gap-7">
-                            <a
-                                href="#work"
-                                className="group inline-flex items-center gap-7 rounded-full bg-lime px-5 py-3 text-[11px] font-semibold text-night transition-transform hover:-translate-y-0.5"
+                            <h1
+                                data-intro="hero-title"
+                                className="mt-7 max-w-[690px] font-editorial text-[clamp(40px,8.5vw,72px)] leading-[.92] tracking-[-.055em] sm:leading-[.88] pb-3"
                             >
-                                View my work <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
-                            </a>
-                            <a href="#about" className="border-b border-white/35 pb-1 text-[11px] text-white/70 transition-colors hover:border-lime hover:text-lime">About me</a>
+                                Building thoughtful
+                                <br />
+                                digital experiences
+                                <span className="text-lime">.</span>
+                            </h1>
+                            <h2
+                                data-intro="hero-detail"
+                                className="my-5 text-white/75 text-[clamp(16px,2.5vw,16px)] tracking-wider"
+                            >
+                                Front-end Developer
+                                <span className="text-lime"> | </span>Vue.js．Nuxt.js．React．Next.js
+                            </h2>
+                            <p
+                                data-intro="hero-detail"
+                                className="mt-5 max-w-[560x] text-sm leading-[1.8] text-white/65 sm:text-[13px]"
+                            >
+                                I'm Aaron, a UK-based front-end developer with
+                                7+ years of commercial experience building
+                                responsive, interactive and multilingual
+                                websites.
+                                <br />
+                                Specialising in Vue.js and Nuxt.js, I also work
+                                with React, Next.js and TypeScript to create
+                                modern, maintainable web interfaces.
+                            </p>
+                            <div
+                                data-intro="hero-detail"
+                                className="mt-7 flex flex-wrap items-center gap-7"
+                            >
+                                <a
+                                    href="#work"
+                                    className="group inline-flex items-center gap-7 rounded-full bg-lime px-5 py-3 text-[11px] font-semibold text-night transition-transform hover:-translate-y-0.5"
+                                >
+                                    View my work{" "}
+                                    <ArrowRight
+                                        size={15}
+                                        className="transition-transform group-hover:translate-x-1"
+                                    />
+                                </a>
+                                <a
+                                    href="mailto:aaron.in.uk.614@gmail.com"
+                                    className="border-b border-white/35 pb-1 text-[11px] text-white/70 transition-colors hover:border-lime hover:text-lime"
+                                >
+                                    Get in touch
+                                </a>
+                                {/* 
+                                <a href="#about" className="border-b border-white/35 pb-1 text-[11px] text-white/70 transition-colors hover:border-lime hover:text-lime">About me</a>
+                            */}
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="hidden md:block" aria-hidden="true" />
-                    <a href="#work" className="absolute right-7 bottom-7 z-10 hidden items-center gap-3 text-[9px] uppercase tracking-[.25em] text-white/50 xl:flex">
-                        Scroll to explore <span className="h-8 border-l border-white/35" />
-                    </a>
+                        <div className="hidden md:block" aria-hidden="true" />
+                        <a
+                            href="#work"
+                            className="absolute right-7 bottom-7 z-10 hidden items-center gap-3 text-[9px] uppercase tracking-[.25em] text-white/50 xl:flex"
+                        >
+                            Scroll to explore{" "}
+                            <span className="h-8 border-l border-white/35" />
+                        </a>
                     </div>
                 </section>
 
-                <section id="skills" className="border-y border-white/10 bg-[#101314]">
-                    <div className={`${frame} flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:gap-8`}>
-                        <p className="shrink-0 text-[9px] uppercase tracking-[.25em] text-white/40">Technical stack</p>
+                <section
+                    id="skills"
+                    className="border-y border-white/10 bg-[#101314]"
+                >
+                    <div
+                        className={`${frame} flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:gap-8`}
+                    >
+                        <p className="shrink-0 text-[9px] uppercase tracking-[.25em] text-white/40">
+                            Technical stack
+                        </p>
                         <span className="hidden h-7 border-l border-white/15 sm:block" />
-                        <div data-stagger className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-4 text-[11px] text-white/75 sm:gap-x-7 lg:gap-x-9">
+                        <div
+                            data-stagger
+                            className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-4 text-[11px] text-white/75 sm:gap-x-7 lg:gap-x-9"
+                        >
                             {toolkit.map((item) => (
-                                <span key={item.name} className="flex items-center gap-2.5">
+                                <span
+                                    key={item.name}
+                                    className="flex items-center gap-2.5"
+                                >
                                     {item.icon ? (
-                                        <Image src={item.icon} alt="" aria-hidden="true" width={18} height={18} className="size-[18px] shrink-0 object-contain" />
+                                        <Image
+                                            src={item.icon}
+                                            alt=""
+                                            aria-hidden="true"
+                                            width={18}
+                                            height={18}
+                                            className="size-[18px] shrink-0 object-contain"
+                                        />
                                     ) : (
-                                        <MonitorSmartphone size={18} strokeWidth={1.7} className="shrink-0 text-white/80" aria-hidden="true" />
+                                        <MonitorSmartphone
+                                            size={18}
+                                            strokeWidth={1.7}
+                                            className="shrink-0 text-white/80"
+                                            aria-hidden="true"
+                                        />
                                     )}
                                     {item.name}
                                 </span>
                             ))}
                         </div>
-                        <p className="ml-auto hidden shrink-0 text-right text-[8px] uppercase leading-[1.8] tracking-[.2em] text-white/35 lg:block">Modern tools<br />Thoughtful experiences</p>
+                        <p className="ml-auto hidden shrink-0 text-right text-[8px] uppercase leading-[1.8] tracking-[.2em] text-white/35 lg:block">
+                            Modern tools
+                            <br />
+                            Thoughtful experiences
+                        </p>
                     </div>
                 </section>
 
@@ -547,15 +759,44 @@ export default function Home() {
                     <div className={frame}>
                         <div className="flex items-end justify-between gap-6">
                             <div>
-                                <p className={eyebrow}>02 / Featured work <span className="text-lime">— {String(projects.length).padStart(2, "0")}</span></p>
+                                <p className={eyebrow}>
+                                    02 / Featured work{" "}
+                                    <span className="text-lime">
+                                        —{" "}
+                                        {String(projects.length).padStart(
+                                            2,
+                                            "0",
+                                        )}
+                                    </span>
+                                </p>
                                 <p className="mt-3 max-w-[650px] text-[11px] leading-[1.7] text-white/55">
-                                    A selection of responsive commercial websites I implemented at Hostlink, working with supplied designs and collaborating with design and backend teams.
+                                    A selection of responsive commercial
+                                    websites I implemented at Hostlink, working
+                                    with supplied designs and collaborating with
+                                    design and backend teams.
                                 </p>
                             </div>
                             <div className="mb-1 flex shrink-0 items-center gap-2 max-sm:hidden">
-                                <span className="mr-3 text-[9px] uppercase tracking-[.2em] text-white/40">{String(projects.length).padStart(2, "0")} projects</span>
-                                <button onClick={() => moveProjects(-1)} disabled={projectsBeginning} className="grid size-10 place-items-center rounded-full border border-white/25 text-white/65 transition-colors hover:border-lime hover:text-lime disabled:cursor-not-allowed disabled:opacity-35" aria-label="Previous projects"><ArrowLeft size={16} /></button>
-                                <button onClick={() => moveProjects(1)} disabled={projectsEnd} className="grid size-10 place-items-center rounded-full border border-lime text-lime transition-colors hover:bg-lime hover:text-night disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-transparent disabled:hover:text-lime" aria-label="Next projects"><ArrowRight size={16} /></button>
+                                <span className="mr-3 text-[9px] uppercase tracking-[.2em] text-white/40">
+                                    {String(projects.length).padStart(2, "0")}{" "}
+                                    projects
+                                </span>
+                                <button
+                                    onClick={() => moveProjects(-1)}
+                                    disabled={projectsBeginning}
+                                    className="grid size-10 place-items-center rounded-full border border-white/25 text-white/65 transition-colors hover:border-lime hover:text-lime disabled:cursor-not-allowed disabled:opacity-35"
+                                    aria-label="Previous projects"
+                                >
+                                    <ArrowLeft size={16} />
+                                </button>
+                                <button
+                                    onClick={() => moveProjects(1)}
+                                    disabled={projectsEnd}
+                                    className="grid size-10 place-items-center rounded-full border border-lime text-lime transition-colors hover:bg-lime hover:text-night disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-transparent disabled:hover:text-lime"
+                                    aria-label="Next projects"
+                                >
+                                    <ArrowRight size={16} />
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -589,77 +830,244 @@ export default function Home() {
                         }}
                     >
                         {projects.map((project, index) => (
-                            <SwiperSlide key={project.id} className="portfolio-slide !h-auto">
-                            <article
-                                data-reveal
-                                className="group h-full"
-                                onPointerEnter={(event) => {
-                                    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-                                    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-                                    if (!canHover || reduceMotion) return;
-                                    const image = event.currentTarget.querySelector("img");
-                                    const arrow = event.currentTarget.querySelector("[data-card-arrow]");
-                                    if (image) gsap.to(image, { scale: 1.045, duration: 0.75, ease: "power3.out", overwrite: "auto" });
-                                    if (arrow) gsap.to(arrow, { x: 4, y: -4, duration: 0.35, ease: "power2.out", overwrite: "auto" });
-                                }}
-                                onPointerLeave={(event) => {
-                                    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-                                    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-                                    if (!canHover || reduceMotion) return;
-                                    const image = event.currentTarget.querySelector("img");
-                                    const arrow = event.currentTarget.querySelector("[data-card-arrow]");
-                                    if (image) gsap.to(image, { scale: 1, duration: 0.65, ease: "power3.out", overwrite: "auto" });
-                                    if (arrow) gsap.to(arrow, { x: 0, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto" });
-                                }}
+                            <SwiperSlide
+                                key={project.id}
+                                className="portfolio-slide !h-auto"
                             >
-                                <button
-                                    className="relative block aspect-[1.65/1] w-full overflow-hidden border border-white/10 bg-[#1c2021] text-left"
-                                    onClick={(event) => { triggerRef.current = event.currentTarget; setSelected(project); }}
-                                    aria-label={`Open ${project.short} project details`}
+                                <article
+                                    data-reveal
+                                    className="group h-full"
+                                    onPointerEnter={(event) => {
+                                        const canHover = window.matchMedia(
+                                            "(hover: hover) and (pointer: fine)",
+                                        ).matches;
+                                        const reduceMotion = window.matchMedia(
+                                            "(prefers-reduced-motion: reduce)",
+                                        ).matches;
+                                        if (!canHover || reduceMotion) return;
+                                        const image =
+                                            event.currentTarget.querySelector(
+                                                "img",
+                                            );
+                                        const arrow =
+                                            event.currentTarget.querySelector(
+                                                "[data-card-arrow]",
+                                            );
+                                        if (image)
+                                            gsap.to(image, {
+                                                scale: 1.045,
+                                                duration: 0.75,
+                                                ease: "power3.out",
+                                                overwrite: "auto",
+                                            });
+                                        if (arrow)
+                                            gsap.to(arrow, {
+                                                x: 4,
+                                                y: -4,
+                                                duration: 0.35,
+                                                ease: "power2.out",
+                                                overwrite: "auto",
+                                            });
+                                    }}
+                                    onPointerLeave={(event) => {
+                                        const canHover = window.matchMedia(
+                                            "(hover: hover) and (pointer: fine)",
+                                        ).matches;
+                                        const reduceMotion = window.matchMedia(
+                                            "(prefers-reduced-motion: reduce)",
+                                        ).matches;
+                                        if (!canHover || reduceMotion) return;
+                                        const image =
+                                            event.currentTarget.querySelector(
+                                                "img",
+                                            );
+                                        const arrow =
+                                            event.currentTarget.querySelector(
+                                                "[data-card-arrow]",
+                                            );
+                                        if (image)
+                                            gsap.to(image, {
+                                                scale: 1,
+                                                duration: 0.65,
+                                                ease: "power3.out",
+                                                overwrite: "auto",
+                                            });
+                                        if (arrow)
+                                            gsap.to(arrow, {
+                                                x: 0,
+                                                y: 0,
+                                                duration: 0.3,
+                                                ease: "power2.out",
+                                                overwrite: "auto",
+                                            });
+                                    }}
                                 >
-                                    <Image src={project.cover} alt={`${project.short} website project screenshot`} fill loading={index === 0 ? "eager" : "lazy"} sizes="(max-width: 640px) 82vw, (max-width: 1024px) 44vw, 25vw" className="object-cover object-top" />
-                                    <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/5" />
-                                    <span className="absolute top-3 left-3 text-[9px] uppercase tracking-[.18em] text-white/85">{String(index + 1).padStart(2, "0")} <span className="text-lime">/</span> {project.category}</span>
-                                    <span data-card-arrow className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full border border-white/55 bg-black/20 transition-colors group-hover:border-lime group-hover:bg-lime group-hover:text-night"><ArrowUpRight size={15} /></span>
-                                </button>
-                                <div className="mt-4 flex items-start justify-between gap-4">
-                                    <div>
-                                        <h3 className="font-editorial text-xl">{project.short}</h3>
-                                        <p className="mt-1 text-[10px] text-white/45">{project.client}</p>
+                                    <button
+                                        className="relative block aspect-[1.65/1] w-full overflow-hidden border border-white/10 bg-[#1c2021] text-left"
+                                        onClick={(event) => {
+                                            triggerRef.current =
+                                                event.currentTarget;
+                                            setSelected(project);
+                                        }}
+                                        aria-label={`Open ${project.short} project details`}
+                                    >
+                                        <Image
+                                            src={project.cover}
+                                            alt={`${project.short} website project screenshot`}
+                                            fill
+                                            loading={
+                                                index === 0 ? "eager" : "lazy"
+                                            }
+                                            sizes="(max-width: 640px) 82vw, (max-width: 1024px) 44vw, 25vw"
+                                            className="object-cover object-top"
+                                        />
+                                        <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/5" />
+                                        <span className="absolute top-3 left-3 text-[9px] uppercase tracking-[.18em] text-white/85">
+                                            {String(index + 1).padStart(2, "0")}{" "}
+                                            <span className="text-lime">/</span>{" "}
+                                            {project.category}
+                                        </span>
+                                        <span
+                                            data-card-arrow
+                                            className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full border border-white/55 bg-black/20 transition-colors group-hover:border-lime group-hover:bg-lime group-hover:text-night"
+                                        >
+                                            <ArrowUpRight size={15} />
+                                        </span>
+                                    </button>
+                                    <div className="mt-4 flex items-start justify-between gap-4">
+                                        <div>
+                                            <h3 className="font-editorial text-xl">
+                                                {project.short}
+                                            </h3>
+                                            <p className="mt-1 text-[10px] text-white/45">
+                                                {project.client}
+                                            </p>
+                                        </div>
+                                        <span className="pt-1 text-[9px] uppercase tracking-[.13em] text-white/35">
+                                            {project.tags[0]}
+                                        </span>
                                     </div>
-                                    <span className="pt-1 text-[9px] uppercase tracking-[.13em] text-white/35">{project.tags[0]}</span>
-                                </div>
-                                <p className="mt-3 line-clamp-2 text-[11px] leading-[1.7] text-white/50">{project.description || "Responsive front-end implementation and interactive website experience."}</p>
-                                <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
-                                    {project.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 border-b border-white/20 pb-1 text-[9px] text-white/65 transition-colors hover:border-lime hover:text-lime">Visit website <ArrowUpRight size={11} /></a>)}
-                                </div>
-                            </article>
+                                    <p className="mt-3 line-clamp-2 text-[11px] leading-[1.7] text-white/50">
+                                        {project.description ||
+                                            "Responsive front-end implementation and interactive website experience."}
+                                    </p>
+                                    <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                                        {project.links.map((link) => (
+                                            <a
+                                                key={link.url}
+                                                href={link.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-1 border-b border-white/20 pb-1 text-[9px] text-white/65 transition-colors hover:border-lime hover:text-lime"
+                                            >
+                                                Visit website{" "}
+                                                <ArrowUpRight size={11} />
+                                            </a>
+                                        ))}
+                                    </div>
+                                </article>
                             </SwiperSlide>
                         ))}
                     </SwiperCarousel>
-                    <p className={`${frame} mt-1 text-[9px] text-white/35 sm:hidden`}>Swipe to explore all projects →</p>
+                    <p
+                        className={`${frame} mt-1 text-[9px] text-white/35 sm:hidden`}
+                    >
+                        Swipe to explore all projects →
+                    </p>
                 </section>
 
-                <section id="about" className="border-y border-white/10 bg-[#101314] py-16 sm:py-20" data-reveal>
-                    <div className={`${frame} grid grid-cols-[.8fr_1.2fr] gap-12 max-md:grid-cols-1 max-md:gap-8`}>
+                <section
+                    id="about"
+                    className="border-y border-white/10 bg-[#101314] py-16 sm:py-20"
+                    data-reveal
+                >
+                    <div
+                        className={`${frame} grid grid-cols-[.8fr_1.2fr] gap-12 max-md:grid-cols-1 max-md:gap-8`}
+                    >
                         <div>
                             <p className={eyebrow}>02 / About & approach</p>
-                            <h2 className={sectionTitle}>Code, design<br />and <span className="font-editorial italic text-lime">people.</span></h2>
+                            <h2 className={sectionTitle}>
+                                Code, design
+                                <br />
+                                and{" "}
+                                <span className="font-editorial italic text-lime">
+                                    people.
+                                </span>
+                            </h2>
                         </div>
-                        <div data-stagger className="grid grid-cols-2 gap-8 max-sm:grid-cols-1">
-                            <div>
-                                <p className="text-[15px] leading-[1.9] text-white/80">{profile.summary}</p>
-                                <p className="mt-5 text-[12px] leading-[1.9] text-white/50">My earlier UI/UX and graphic design experience helps me work through design handoffs, responsive details and technical feasibility with care.</p>
+                        <div
+                            data-stagger
+                            className="grid grid-cols-5 gap-8 max-sm:grid-cols-1"
+                        >
+                            <div className="col-span-3">
+                                <p className="text-sm leading-[1.5] text-white/80">
+                                    I'm a front-end developer based in
+                                    Hertfordshire, UK, with over 7 years of
+                                    commercial experience delivering responsive,
+                                    interactive and multilingual websites for
+                                    clients across different industries.
+                                    <br />
+                                    My professional background is primarily in
+                                    Vue.js and Nuxt.js development, where I've
+                                    worked on more than 30 commercial website
+                                    projects. My responsibilities have included
+                                    project setup, reusable component
+                                    development, CMS integration, responsive
+                                    implementation and cross-browser testing,
+                                    working closely with designers and backend
+                                    developers throughout the delivery process.
+                                    <br />
+                                    With a background in UI/UX and visual
+                                    design, I bring attention to detail and a
+                                    strong understanding of user interfaces to
+                                    my development work. I enjoy translating
+                                    complex design requirements into functional,
+                                    accessible and maintainable web experiences.
+                                    <br />
+                                    Alongside my commercial Vue/Nuxt experience,
+                                    I've been expanding my technical skills
+                                    through personal projects using React,
+                                    Next.js and TypeScript, including the
+                                    development of this portfolio website.
+                                    <br />
+                                    I'm currently open to front-end development
+                                    opportunities in the UK, where I can
+                                    contribute my commercial experience while
+                                    continuing to grow as an engineer.
+                                    <br />
+                                    {/* profile.summary */}
+                                </p>
+                                <p className="mt-5 text-[12px] leading-[1.9] text-white/50">
+                                    I enjoy working with designers and backend
+                                    developers to find practical solutions,
+                                    balance design requirements with technical
+                                    feasibility and create websites that work
+                                    consistently across different devices.
+                                </p>
                             </div>
-                            <div className="space-y-6">
+                            <div className="col-span-2 space-y-6">
                                 <div>
                                     <p className={eyebrow}>Education</p>
-                                    <p className="mt-2 text-sm">Bachelor of Computing</p>
-                                    <p className="mt-1 text-[11px] leading-[1.7] text-white/50">The Open University of Hong Kong<br />Sep 2015 – Jun 2018</p>
+                                    <p className="mt-2 text-sm">
+                                        Bachelor of Computing
+                                    </p>
+                                    <p className="mt-1 text-[11px] leading-[1.7] text-white/50">
+                                        The Open University of Hong Kong
+                                        <br />
+                                        Sep 2015 – Jun 2018
+                                    </p>
                                 </div>
                                 <div className="border-t border-white/10 pt-5">
-                                    <p className={eyebrow}>Languages & eligibility</p>
-                                    <p className="mt-2 text-[11px] leading-[1.9] text-white/65">Cantonese · Mandarin · English<br />Unrestricted right to work in the UK<br />Full UK Driving Licence</p>
+                                    <p className={eyebrow}>
+                                        Languages & eligibility
+                                    </p>
+                                    <p className="mt-2 text-[11px] leading-[1.9] text-white/65">
+                                        Cantonese · Mandarin · English
+                                        <br />
+                                        Unrestricted right to work in the UK
+                                        <br />
+                                        Full UK Driving Licence
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -670,20 +1078,48 @@ export default function Home() {
                     <div className={frame}>
                         <p className={eyebrow}>03 / Experience</p>
                         <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
-                            <h2 className={sectionTitle}>A background in<br /><span className="font-editorial italic text-lime">building for the web.</span></h2>
-                            <p className="max-w-[360px] text-[11px] leading-[1.8] text-white/50">Front-end delivery, interaction, responsive implementation and thoughtful collaboration.</p>
+                            <h2 className={sectionTitle}>
+                                A background in
+                                <br />
+                                <span className="font-editorial italic text-lime">
+                                    building for the web.
+                                </span>
+                            </h2>
+                            <p className="max-w-[360px] text-[11px] leading-[1.8] text-white/50">
+                                Front-end delivery, interaction, responsive
+                                implementation and thoughtful collaboration.
+                            </p>
                         </div>
                         <div data-stagger>
                             {experience.map((job, index) => (
-                                <article key={job.company} className="grid grid-cols-[.8fr_1.2fr] gap-10 border-t border-white/15 py-7 max-md:grid-cols-1 max-md:gap-5">
+                                <article
+                                    key={job.company}
+                                    className="grid grid-cols-[.8fr_1.2fr] gap-10 border-t border-white/15 py-7 max-md:grid-cols-1 max-md:gap-5"
+                                >
                                     <div>
-                                        <p className={eyebrow}>0{index + 1} / {job.label}</p>
-                                        <h3 className="mt-3 font-editorial text-2xl">{job.role}</h3>
-                                        <p className="mt-2 text-[12px] text-white/65">{job.company}</p>
-                                        <p className="mt-1 text-[10px] text-white/40">{job.dates}</p>
+                                        <p className={eyebrow}>
+                                            0{index + 1} / {job.label}
+                                        </p>
+                                        <h3 className="mt-3 font-editorial text-2xl">
+                                            {job.role}
+                                        </h3>
+                                        <p className="mt-2 text-[12px] text-white/65">
+                                            {job.company}
+                                        </p>
+                                        <p className="mt-1 text-[10px] text-white/40">
+                                            {job.dates}
+                                        </p>
                                     </div>
                                     <ul className="space-y-2.5 text-[11px] leading-[1.8] text-white/60">
-                                        {job.points.map((point) => <li key={point} className="flex gap-3"><span className="mt-[7px] size-1 shrink-0 rounded-full bg-lime" />{point}</li>)}
+                                        {job.points.map((point) => (
+                                            <li
+                                                key={point}
+                                                className="flex gap-3"
+                                            >
+                                                <span className="mt-[7px] size-1 shrink-0 rounded-full bg-lime" />
+                                                {point}
+                                            </li>
+                                        ))}
                                     </ul>
                                 </article>
                             ))}
@@ -691,16 +1127,45 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section className="border-y border-white/10 bg-[#101314] py-16 sm:py-20" data-reveal>
+                <section
+                    className="border-y border-white/10 bg-[#101314] py-16 sm:py-20"
+                    data-reveal
+                >
                     <div className={frame}>
                         <p className={eyebrow}>04 / Skills & tools</p>
-                        <h2 className={sectionTitle}>The tools behind <span className="font-editorial italic text-lime">the details.</span></h2>
-                        <div data-stagger className="mt-9 grid grid-cols-2 gap-x-10 gap-y-7 max-sm:grid-cols-1">
+                        <h2 className={sectionTitle}>
+                            The tools behind{" "}
+                            <span className="font-editorial italic text-lime">
+                                the details.
+                            </span>
+                        </h2>
+                        <div
+                            data-stagger
+                            className="mt-9 grid grid-cols-2 gap-x-10 gap-y-7 max-sm:grid-cols-1"
+                        >
                             {skills.map((group, index) => (
-                                <div key={group.name} className="border-t border-white/15 pt-4">
-                                    <h3 className="text-[12px] font-medium"><span className="mr-3 font-editorial text-lime">0{index + 1}</span>{group.name}</h3>
-                                    <div data-stagger className="mt-4 flex flex-wrap gap-2">
-                                        {group.items.map((item) => <span key={item} className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/60">{item}</span>)}
+                                <div
+                                    key={group.name}
+                                    className="border-t border-white/15 pt-4"
+                                >
+                                    <h3 className="text-[12px] font-medium">
+                                        <span className="mr-3 font-editorial text-lime">
+                                            0{index + 1}
+                                        </span>
+                                        {group.name}
+                                    </h3>
+                                    <div
+                                        data-stagger
+                                        className="mt-4 flex flex-wrap gap-2"
+                                    >
+                                        {group.items.map((item) => (
+                                            <span
+                                                key={item}
+                                                className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/60"
+                                            >
+                                                {item}
+                                            </span>
+                                        ))}
                                     </div>
                                 </div>
                             ))}
@@ -709,43 +1174,158 @@ export default function Home() {
                 </section>
 
                 <section id="contact" className="py-16 sm:py-20" data-reveal>
-                    <div data-stagger className={`${frame} grid grid-cols-[1fr_auto] items-end gap-8 max-sm:grid-cols-1`}>
+                    <div
+                        data-stagger
+                        className={`${frame} grid grid-cols-[1fr_auto] items-end gap-8 max-sm:grid-cols-1`}
+                    >
                         <div>
                             <p className={eyebrow}>05 / Get in touch</p>
-                            <h2 className="mt-5 font-editorial text-[clamp(44px,8vw,92px)] leading-[.95] tracking-[-.05em]">Let’s make<br />something <span className="italic text-lime">matter.</span></h2>
-                            <p className="mt-5 text-[11px] text-white/50">{profile.fullName} · {profile.location} · Open to opportunities</p>
-                            <a href={`mailto:${profile.email}`} className="mt-6 inline-block break-all border-b border-lime pb-2 text-[clamp(16px,2.2vw,24px)] transition-colors hover:text-lime">{profile.email}</a>
-                            <a href={`tel:${profile.phone.replaceAll(" ", "")}`} className="mt-4 block text-[12px] text-white/55 transition-colors hover:text-lime">{profile.phone}</a>
+                            <h2 className="mt-5 font-editorial text-[clamp(44px,8vw,92px)] leading-[.95] tracking-[-.05em]">
+                                Let’s make
+                                <br />
+                                something{" "}
+                                <span className="italic text-lime">
+                                    matter.
+                                </span>
+                            </h2>
+                            <p className="mt-5 text-[11px] text-white/50">
+                                {profile.fullName} · {profile.location} · Open
+                                to opportunities
+                            </p>
+                            <a
+                                href={`mailto:${profile.email}`}
+                                className="mt-6 inline-block break-all border-b border-lime pb-2 text-[clamp(16px,2.2vw,24px)] transition-colors hover:text-lime"
+                            >
+                                {profile.email}
+                            </a>
+                            <a
+                                href={`tel:${profile.phone.replaceAll(" ", "")}`}
+                                className="mt-4 block text-[12px] text-white/55 transition-colors hover:text-lime"
+                            >
+                                {profile.phone}
+                            </a>
                         </div>
                         <div className="flex flex-wrap gap-2 sm:max-w-[230px] sm:justify-end">
-                            <a className="rounded-full border border-white/20 px-4 py-2.5 text-[10px] transition-colors hover:border-lime hover:text-lime" href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                            <a className="rounded-full border border-white/20 px-4 py-2.5 text-[10px] transition-colors hover:border-lime hover:text-lime" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                            <a className="inline-flex items-center gap-2 rounded-full bg-lime px-4 py-2.5 text-[10px] text-night transition-colors hover:bg-white" href="/Aaron_Liu_CV.docx" download>Download CV <Download size={13} /></a>
+                            <a
+                                className="rounded-full border border-white/20 px-4 py-2.5 text-[10px] transition-colors hover:border-lime hover:text-lime"
+                                href={profile.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn ↗
+                            </a>
+                            <a
+                                className="rounded-full border border-white/20 px-4 py-2.5 text-[10px] transition-colors hover:border-lime hover:text-lime"
+                                href={profile.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub ↗
+                            </a>
+                            <a
+                                className="inline-flex items-center gap-2 rounded-full bg-lime px-4 py-2.5 text-[10px] text-night transition-colors hover:bg-white"
+                                href="/Aaron_Liu_CV.docx"
+                                download
+                            >
+                                Download CV <Download size={13} />
+                            </a>
                         </div>
                     </div>
                 </section>
             </main>
 
-            <footer className={`${frame} flex flex-wrap justify-between gap-3 border-t border-white/10 py-6 text-[9px] uppercase tracking-[.16em] text-white/35`}>
-                <span>© {new Date().getFullYear()} Aaron Liu · Front-end Developer</span>
-                <a href="#top" className="transition-colors hover:text-lime">Back to top ↑</a>
+            <footer
+                className={`${frame} flex flex-wrap justify-between gap-3 border-t border-white/10 py-6 text-[9px] uppercase tracking-[.16em] text-white/35`}
+            >
+                <span>
+                    © {new Date().getFullYear()} Aaron Liu · Front-end Developer
+                </span>
+                <a href="#top" className="transition-colors hover:text-lime">
+                    Back to top ↑
+                </a>
             </footer>
 
             {selected && (
-                <div ref={dialogBackdropRef} className="fixed inset-0 z-50 grid place-items-center bg-black/75 p-4 backdrop-blur-sm" onClick={(event) => { if (event.target === event.currentTarget) setSelected(null); }}>
-                    <section ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="project-title" className="relative max-h-[92vh] w-full max-w-3xl overflow-auto border border-white/15 bg-[#111415] p-6 text-white sm:p-8">
-                        <button ref={closeRef} className="absolute top-4 right-4 z-10 grid size-9 place-items-center rounded-full border border-white/25 bg-night/70 transition-colors hover:border-lime hover:text-lime" aria-label="Close project details" onClick={() => setSelected(null)}><X size={17} /></button>
+                <div
+                    ref={dialogBackdropRef}
+                    className="fixed inset-0 z-50 grid place-items-center bg-black/75 p-4 backdrop-blur-sm"
+                    onClick={(event) => {
+                        if (event.target === event.currentTarget)
+                            setSelected(null);
+                    }}
+                >
+                    <section
+                        ref={dialogRef}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="project-title"
+                        className="relative max-h-[92vh] w-full max-w-3xl overflow-auto border border-white/15 bg-[#111415] p-6 text-white sm:p-8"
+                    >
+                        <button
+                            ref={closeRef}
+                            className="absolute top-4 right-4 z-10 grid size-9 place-items-center rounded-full border border-white/25 bg-night/70 transition-colors hover:border-lime hover:text-lime"
+                            aria-label="Close project details"
+                            onClick={() => setSelected(null)}
+                        >
+                            <X size={17} />
+                        </button>
                         <div className="relative mt-6 aspect-video overflow-hidden border border-white/10 bg-[#202324]">
-                            <Image src={selected.cover} alt={`${selected.short} website`} fill sizes="(max-width: 768px) 90vw, 700px" className="object-cover object-top" />
+                            <Image
+                                src={selected.cover}
+                                alt={`${selected.short} website`}
+                                fill
+                                sizes="(max-width: 768px) 90vw, 700px"
+                                className="object-cover object-top"
+                            />
                         </div>
-                        <p className={`${eyebrow} mt-6`}>{selected.category} / Hostlink portfolio</p>
-                        <h2 id="project-title" className="mt-2 font-editorial text-3xl">{selected.name}</h2>
-                        <p className="mt-2 text-[11px] text-white/45">{selected.client}</p>
-                        <p className="mt-5 text-[13px] leading-[1.8] text-white/75">{selected.description || "Responsive front-end implementation and interactive website experience."}</p>
-                        <h3 className="mt-6 text-[11px] font-semibold">My contribution</h3>
-                        <p className="mt-2 text-[11px] leading-[1.8] text-white/50">{"contribution" in selected ? selected.contribution : "Front-end setup and implementation, Vue/Nuxt UI development, animations and responsive testing, in collaboration with designers and backend programmers. Visual designs were supplied; CMS connections and data processing were handled by backend programmers."}</p>
-                        <div className="mt-5 flex flex-wrap gap-2">{selected.tags.map((tag) => <span key={tag} className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/65">{tag}</span>)}</div>
-                        <div className="mt-6 flex flex-wrap gap-5">{selected.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-lime pb-1 text-[11px] text-lime">{link.label}<ArrowUpRight size={14} /></a>)}</div>
+                        <p className={`${eyebrow} mt-6`}>
+                            {selected.category} / Hostlink portfolio
+                        </p>
+                        <h2
+                            id="project-title"
+                            className="mt-2 font-editorial text-3xl"
+                        >
+                            {selected.name}
+                        </h2>
+                        <p className="mt-2 text-[11px] text-white/45">
+                            {selected.client}
+                        </p>
+                        <p className="mt-5 text-[13px] leading-[1.8] text-white/75">
+                            {selected.description ||
+                                "Responsive front-end implementation and interactive website experience."}
+                        </p>
+                        <h3 className="mt-6 text-[11px] font-semibold">
+                            My contribution
+                        </h3>
+                        <p className="mt-2 text-[11px] leading-[1.8] text-white/50">
+                            {"contribution" in selected
+                                ? selected.contribution
+                                : "Front-end setup and implementation, Vue/Nuxt UI development, animations and responsive testing, in collaboration with designers and backend programmers. Visual designs were supplied; CMS connections and data processing were handled by backend programmers."}
+                        </p>
+                        <div className="mt-5 flex flex-wrap gap-2">
+                            {selected.tags.map((tag) => (
+                                <span
+                                    key={tag}
+                                    className="rounded-full border border-white/15 px-3 py-1.5 text-[9px] text-white/65"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                        <div className="mt-6 flex flex-wrap gap-5">
+                            {selected.links.map((link) => (
+                                <a
+                                    key={link.url}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 border-b border-lime pb-1 text-[11px] text-lime"
+                                >
+                                    {link.label}
+                                    <ArrowUpRight size={14} />
+                                </a>
+                            ))}
+                        </div>
                     </section>
                 </div>
             )}

@@ -8,7 +8,7 @@ export const profile = {
     github: "https://github.com/aaronliu65",
     linkedin: "https://www.linkedin.com/in/aaronliu65/",
     summary:
-        "Front-end Developer with 7+ years of commercial website experience, specialising in Vue.js, Nuxt.js, JavaScript and responsive UI development. I translate designer-supplied concepts into functional websites, build reusable components and collaborate with backend programmers to validate CMS-driven content.",
+        "I'm a front-end developer with over 7 years of experience delivering commercial websites for clients across property, sports and other industries. My main expertise is in Vue.js, Nuxt.js, JavaScript and responsive interface development. I have independently managed the front-end implementation of assigned projects, from initial project setup and component development to multilingual support, interactive features and cross-browser testing. Having started my career in UI/UX and graphic design, I bring a strong understanding of visual detail and user experience to front-end development.",
 };
 export const projects = [
     {
@@ -39,6 +39,36 @@ export const projects = [
     },
     {
         id: "02",
+        name: "Delight Terrace",
+        short: "Delight Terrace",
+        category: "Property",
+        client: "Hong Kong Housing Society",
+        tags: [
+            "Nuxt.js",
+            "Vue.js",
+            "fullPage.js",
+            "Animate.css",
+            "Swiper",
+            "i18n",
+            "YAML",
+            "Fancyapps Panzoom",
+            "Smooth Scrollbar",
+        ],
+        description:
+            "Led the front-end build of Delight Terrace from tender designer layouts, creating an interactive trilingual property website with location, school, transport, floor-plan and media sections.",
+        contribution:
+            "Led the front-end implementation from the ground up, working directly with the tender designer to discuss website behaviour and the feasibility of translating layouts into a functioning website. Managed Traditional Chinese, Simplified Chinese and English translations with i18n and YAML files. Built interactive sections for location and transport, school networks, design features, floor plans and the media bank. Built with Nuxt.js and Vue.js, using fullPage.js for full-page navigation, Animate.css for effects, Swiper for galleries, Fancyapps Panzoom for image zoom and drag-to-pan, and Smooth Scrollbar for a customised scrollbar. Developed reusable components with conditional rendering and props. Programmers handled the API, database, CMS for client content updates, sales information and form functionality.",
+        links: [
+            {
+                label: "Visit website",
+                url: "https://delightterrace.hkhs.com/en/",
+            },
+        ],
+        colour: "bg-[#e4e8df] text-[#394633]",
+        cover: "/images/projects/delightterrace.png",
+    },
+    {
+        id: "03",
         name: "The Haddon",
         short: "The Haddon",
         category: "Property",
@@ -66,7 +96,7 @@ export const projects = [
         cover: "/images/projects/thehaddon.png",
     },
     {
-        id: "03",
+        id: "04",
         name: "Harbour City Office",
         short: "Harbour City",
         category: "Commercial",
@@ -96,36 +126,6 @@ export const projects = [
         ],
         colour: "bg-[#dce1e7] text-[#2c3d50]",
         cover: "/images/projects/harbourcity.png",
-    },
-    {
-        id: "04",
-        name: "Delight Terrace",
-        short: "Delight Terrace",
-        category: "Property",
-        client: "Hong Kong Housing Society",
-        tags: [
-            "Nuxt.js",
-            "Vue.js",
-            "fullPage.js",
-            "Animate.css",
-            "Swiper",
-            "i18n",
-            "YAML",
-            "Fancyapps Panzoom",
-            "Smooth Scrollbar",
-        ],
-        description:
-            "Led the front-end build of Delight Terrace from tender designer layouts, creating an interactive trilingual property website with location, school, transport, floor-plan and media sections.",
-        contribution:
-            "Led the front-end implementation from the ground up, working directly with the tender designer to discuss website behaviour and the feasibility of translating layouts into a functioning website. Managed Traditional Chinese, Simplified Chinese and English translations with i18n and YAML files. Built interactive sections for location and transport, school networks, design features, floor plans and the media bank. Built with Nuxt.js and Vue.js, using fullPage.js for full-page navigation, Animate.css for effects, Swiper for galleries, Fancyapps Panzoom for image zoom and drag-to-pan, and Smooth Scrollbar for a customised scrollbar. Developed reusable components with conditional rendering and props. Programmers handled the API, database, CMS for client content updates, sales information and form functionality.",
-        links: [
-            {
-                label: "Visit website",
-                url: "https://delightterrace.hkhs.com/en/",
-            },
-        ],
-        colour: "bg-[#e4e8df] text-[#394633]",
-        cover: "/images/projects/delightterrace.png",
     },
     {
         id: "05",
@@ -271,62 +271,51 @@ export const projects = [
 ];
 export const skills = [
     {
-        name: "Front-end development",
+        name: "Core Front End",
         items: [
-            "JavaScript (ES6+)",
             "Vue.js",
             "Nuxt.js",
+            "JavaScript (ES6+)",
             "HTML5",
             "CSS3",
-            "jQuery",
         ],
     },
     {
-        name: "UI & components",
+        name: "Components & Styling",
         items: [
-            "Reusable Vue components",
-            "Composition API",
-            "Props & reactive state",
+            "Vue Composition API",
             "Tailwind CSS",
-            "DaisyUI",
             "Bootstrap",
+            "Responsive Design"
         ],
     },
     {
-        name: "Interaction & media",
+        name: "Interaction",
         items: [
-            "Custom animations & transitions",
-            "HTML Canvas",
+            "GSAP",
             "Swiper",
-            "fullPage.js",
-            "AOS",
-            "Plyr.js",
-            "Form UI & validation",
-            "FormKit",
-            "Element UI",
-            "Fancyapps",
-            "Animate.css",
+            "Canvas",
+            "CSS Animations"
+
         ],
     },
     {
-        name: "Tools & workflow",
+        name: "workflow",
         items: [
+            "Git",
+            "GitHub Actions",
             "npm",
-            "i18n / YAML translation files",
-            "Git / GitHub",
-            "Branching & merging",
-            "GitHub Actions — development-server deployment",
+            "CMS Integration",
+            "i18n",
         ],
     },
     {
-        name: "Quality & collaboration",
+        name: "Quality",
         items: [
-            "Chrome, Microsoft Edge (Windows) & Safari support",
-            "Responsive & cross-browser testing",
-            "CMS content validation",
+            "Cross-Browser Testing",
             "Lighthouse",
-            "Basic SEO & accessibility",
-            "Design handoff",
+            "Basic SEO",
+            "Accessibility",
         ],
     },
 ];
