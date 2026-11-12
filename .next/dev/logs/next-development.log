@@ -1,17 +1,18 @@
-{"timestamp":"00:00:00.960","source":"Server","level":"LOG","message":""}
-{"timestamp":"01:01:07.530","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"01:20:26.722","source":"Server","level":"LOG","message":"✓ Compiled in 48ms"}
-{"timestamp":"01:20:36.564","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
-{"timestamp":"01:20:57.179","source":"Server","level":"LOG","message":"✓ Compiled in 28ms"}
-{"timestamp":"01:21:45.828","source":"Server","level":"LOG","message":"✓ Compiled in 36ms"}
-{"timestamp":"01:22:15.165","source":"Server","level":"LOG","message":"✓ Compiled in 37ms"}
-{"timestamp":"01:22:58.218","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"01:23:08.120","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
-{"timestamp":"01:26:11.690","source":"Server","level":"LOG","message":"✓ Compiled in 34ms"}
-{"timestamp":"01:26:17.492","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"01:26:23.357","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
-{"timestamp":"01:26:28.976","source":"Server","level":"LOG","message":"✓ Compiled in 35ms"}
-{"timestamp":"01:26:32.429","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"01:27:03.766","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
-{"timestamp":"01:27:28.463","source":"Server","level":"LOG","message":"✓ Compiled in 17ms"}
-{"timestamp":"01:27:44.123","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"00:00:00.956","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:03.821","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:01:23.751","source":"Server","level":"LOG","message":"✓ Compiled in 45ms"}
+{"timestamp":"00:01:36.733","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:03:15.157","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
+{"timestamp":"00:03:19.083","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:03:42.055","source":"Server","level":"LOG","message":"✓ Compiled in 33ms"}
+{"timestamp":"00:04:10.531","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
+{"timestamp":"00:05:46.635","source":"Server","level":"LOG","message":"✓ Compiled in 18ms"}
+{"timestamp":"00:05:48.544","source":"Browser","level":"ERROR","message":"Encountered two children with the same key, `Quality`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. \n    at Set.forEach (<anonymous>) (<anonymous>)"}
+{"timestamp":"00:05:48.545","source":"Server","level":"ERROR","message":"[browser] \"Encountered two children with the same key, `Quality`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.\" \"\\n\\u001b[31m    at Set.forEach (<anonymous>)\\u001b[39m\" \"\\u001b[2m(<anonymous>)\\u001b[22m\""}
+{"timestamp":"00:06:08.338","source":"Server","level":"LOG","message":"✓ Compiled in 13ms"}
+{"timestamp":"00:06:25.442","source":"Server","level":"LOG","message":"✓ Compiled in 25ms"}
+{"timestamp":"00:06:32.872","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
+{"timestamp":"00:06:51.843","source":"Server","level":"LOG","message":"✓ Compiled in 19ms"}
+{"timestamp":"00:07:35.957","source":"Browser","level":"ERROR","message":"Encountered two children with the same key, `Quality`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. \n    at Set.forEach (<anonymous>) (<anonymous>)"}
+{"timestamp":"00:07:35.958","source":"Server","level":"ERROR","message":"[browser] \"Encountered two children with the same key, `Quality`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.\" \"\\n\\u001b[31m    at Set.forEach (<anonymous>)\\u001b[39m\" \"\\u001b[2m(<anonymous>)\\u001b[22m\""}
+{"timestamp":"00:08:40.786","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}

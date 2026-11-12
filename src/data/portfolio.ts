@@ -315,7 +315,15 @@ export const skills = [
             "Cross-Browser Testing",
             "Lighthouse",
             "Basic SEO",
-            "Accessibility",
+            "User Friendly Design",
+        ],
+    },
+    {
+        name: "Additional Frameworks Experience",
+        items: [
+            "React",
+            "Next.js",
+            "TypeScript",
         ],
     },
 ];
@@ -330,7 +338,7 @@ export const experience = [
             "Started Nuxt projects from scratch, configuring the front end and installing packages such as Tailwind CSS and Swiper to meet project requirements.",
             "Translated approved designs into responsive Vue/Nuxt pages, discussing feasibility with designers and recommending practical changes.",
             "Built reusable Vue components where layouts allowed, and used props and conditional logic to handle page-specific variations; also created custom animations and interactive behaviours.",
-            "Worked with programmers responsible for APIs, databases and CMS development; the CMS lets clients update content on dynamic websites. Selected reusable components according to each project's layout needs.",
+            "Worked with programmers responsible for APIs, databases and CMS development; the CMS lets clients update content on dynamic websites.",
             "Implemented language support across assigned websites with i18n and YAML translation files, with the supported languages varying by project.",
             "Supported common Hong Kong site languages—Traditional Chinese, Simplified Chinese and English—and tested browser compatibility for Chrome, Microsoft Edge on Windows and Safari.",
             "Validated CMS-managed content and repeatedly tested layouts, interactions and forms across desktop, tablet and mobile.",

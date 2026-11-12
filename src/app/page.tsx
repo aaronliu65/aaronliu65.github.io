@@ -642,7 +642,7 @@ export default function Home() {
                             </div>
                             <h1
                                 data-intro="hero-title"
-                                className="mt-7 max-w-[690px] font-editorial text-[clamp(40px,8.5vw,72px)] leading-[.92] tracking-[-.055em] sm:leading-[.88] pb-3"
+                                className="mt-7 max-w-[690px] font-editorial text-[clamp(40px,5vw,72px)] leading-[.92] tracking-[-.055em] sm:leading-[.88] pb-3"
                             >
                                 Building thoughtful
                                 <br />
@@ -999,14 +999,16 @@ export default function Home() {
                             data-stagger
                             className="grid grid-cols-5 gap-8 max-sm:grid-cols-1"
                         >
-                            <div className="col-span-3">
+                            <div className="col-span-3 space-y-2">
                                 <p className="text-sm leading-[1.5] text-white/80">
                                     I'm a front-end developer based in
                                     Hertfordshire, UK, with over 7 years of
                                     commercial experience delivering responsive,
                                     interactive and multilingual websites for
                                     clients across different industries.
-                                    <br />
+                                    {/* profile.summary */}
+                                </p>
+                                <p className="text-sm leading-[1.5] text-white/80">
                                     My professional background is primarily in
                                     Vue.js and Nuxt.js development, where I've
                                     worked on more than 30 commercial website
@@ -1016,33 +1018,27 @@ export default function Home() {
                                     implementation and cross-browser testing,
                                     working closely with designers and backend
                                     developers throughout the delivery process.
-                                    <br />
+                                </p>
+                                <p className="text-sm leading-[1.5] text-white/80">
                                     With a background in UI/UX and visual
                                     design, I bring attention to detail and a
                                     strong understanding of user interfaces to
                                     my development work. I enjoy translating
                                     complex design requirements into functional,
-                                    accessible and maintainable web experiences.
-                                    <br />
+                                    user-friendly and maintainable web experiences.
+                                </p>
+                                <p className="text-sm leading-[1.5] text-white/80">
                                     Alongside my commercial Vue/Nuxt experience,
                                     I've been expanding my technical skills
                                     through personal projects using React,
                                     Next.js and TypeScript, including the
                                     development of this portfolio website.
-                                    <br />
+                                </p>
+                                <p className="mt-5 text-[12px] leading-[1.9] text-white/50">
                                     I'm currently open to front-end development
                                     opportunities in the UK, where I can
                                     contribute my commercial experience while
                                     continuing to grow as an engineer.
-                                    <br />
-                                    {/* profile.summary */}
-                                </p>
-                                <p className="mt-5 text-[12px] leading-[1.9] text-white/50">
-                                    I enjoy working with designers and backend
-                                    developers to find practical solutions,
-                                    balance design requirements with technical
-                                    feasibility and create websites that work
-                                    consistently across different devices.
                                 </p>
                             </div>
                             <div className="col-span-2 space-y-6">
