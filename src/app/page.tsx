@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
     ArrowDown,
@@ -8,10 +9,10 @@ import {
     ArrowRight,
     ArrowUpRight,
     Download,
-    Menu,
     MonitorSmartphone,
     X,
 } from "lucide-react";
+import SiteHeader from "../components/site-header";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper as SwiperCarousel, SwiperSlide } from "swiper/react";
@@ -33,7 +34,6 @@ export default function Home() {
     >("visible");
     const [assetsReady, setAssetsReady] = useState(false);
     const [swiperReady, setSwiperReady] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [selected, setSelected] = useState<(typeof projects)[number] | null>(
         null,
     );
@@ -402,146 +402,7 @@ export default function Home() {
                 Skip to content
             </a>
 
-            <header
-                data-intro="header"
-                className="relative z-20 mx-auto w-full max-w-[1600px] px-4 sm:px-10 xl:px-14"
-            >
-                <div className="flex min-h-[72px] items-center justify-between __gap-5 border-b border-white/10">
-                    <div className="flex min-h-[72px] w-full items-center justify-between gap-8 border-white/10 pr-[2.5vw] min-sm:border-r max-sm:pr-0">
-                        <div className="flex items-center gap-8">
-                            <a
-                                href="#top"
-                                className="font-editorial text-[14px] tracking-[.22em]"
-                                aria-label="Aaron Liu home"
-                            >
-                                AARON LIU
-                            </a>
-                            <div className="flex items-center gap-3 max-lg:hidden">
-                                <div className="text-lime">•</div>
-                                <div className="text-xs text-white/45">
-                                    Front-end Developer
-                                </div>
-                            </div>
-                        </div>
-                        <nav
-                            aria-label="Main navigation"
-                            className="flex items-center gap-7 text-[11px] text-white/70 max-md:gap-4 max-sm:hidden"
-                        >
-                            <a
-                                className="transition-colors hover:text-lime"
-                                href="#work"
-                            >
-                                Work
-                            </a>
-                            <a
-                                className="transition-colors hover:text-lime"
-                                href="#about"
-                            >
-                                About
-                            </a>
-                            <a
-                                className="transition-colors hover:text-lime"
-                                href="#experience"
-                            >
-                                Experience
-                            </a>
-                            <a
-                                className="transition-colors hover:text-lime"
-                                href="#skills"
-                            >
-                                Stack
-                            </a>
-                            <a
-                                className="transition-colors hover:text-lime"
-                                href="#contact"
-                            >
-                                Contact
-                            </a>
-                        </nav>
-                        <button
-                            type="button"
-                            className="hidden size-10 items-center justify-center border border-white/15 text-white transition-colors hover:border-lime hover:text-lime max-sm:inline-flex max-sm:pr-0"
-                            aria-label={
-                                mobileMenuOpen
-                                    ? "Close navigation menu"
-                                    : "Open navigation menu"
-                            }
-                            aria-expanded={mobileMenuOpen}
-                            aria-controls="mobile-navigation"
-                            onClick={() => setMobileMenuOpen((open) => !open)}
-                        >
-                            {mobileMenuOpen ? (
-                                <X size={18} aria-hidden="true" />
-                            ) : (
-                                <Menu size={18} aria-hidden="true" />
-                            )}
-                        </button>
-                    </div>
-                    <a
-                        className="flex items-center gap-8 text-[9px] uppercase tracking-[.18em] text-white/55 max-sm:hidden pl-[2.5vw] max-sm:pl-4"
-                        href={`mailto:${profile.email}`}
-                    >
-                        <span className="size-1.5 min-w-[6px] rounded-full bg-lime" />
-                        Open to opportunities
-                    </a>
-                </div>
-                <nav
-                    id="mobile-navigation"
-                    aria-label="Mobile navigation"
-                    aria-hidden={!mobileMenuOpen}
-                    className={`fixed inset-0 z-[70] hidden min-h-svh flex-col overflow-y-auto bg-night px-4 py-5 text-white transition-[opacity,transform,visibility] duration-300 ease-out motion-reduce:transition-none max-sm:flex ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible pointer-events-none translate-y-3 opacity-0"}`}
-                    onKeyDown={(event) => {
-                        if (event.key === "Escape") setMobileMenuOpen(false);
-                    }}
-                >
-                    <div className="flex items-center justify-between border-b border-white/15 pb-5">
-                        <a
-                            href="#top"
-                            className="font-editorial text-[14px] tracking-[.22em]"
-                            tabIndex={mobileMenuOpen ? 0 : -1}
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            AARON LIU
-                        </a>
-                        <button
-                            type="button"
-                            className="grid size-10 place-items-center border border-white/15 text-white transition-colors hover:border-lime hover:text-lime"
-                            aria-label="Close navigation menu"
-                            tabIndex={mobileMenuOpen ? 0 : -1}
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            <X size={18} aria-hidden="true" />
-                        </button>
-                    </div>
-                    <div className="flex flex-1 flex-col justify-center py-10">
-                        {[
-                            ["Work", "#work"],
-                            ["About", "#about"],
-                            ["Experience", "#experience"],
-                            ["Stack", "#skills"],
-                            ["Contact", "#contact"],
-                        ].map(([label, href]) => (
-                            <a
-                                key={href}
-                                className="border-b border-white/10 py-4 font-editorial text-3xl tracking-[-.03em] transition-colors hover:text-lime"
-                                href={href}
-                                tabIndex={mobileMenuOpen ? 0 : -1}
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                {label}
-                            </a>
-                        ))}
-                    </div>
-                    <a
-                        className="flex items-center gap-3 border-t border-white/15 pt-5 text-[9px] uppercase tracking-[.18em] text-white/55"
-                        href={`mailto:${profile.email}`}
-                        tabIndex={mobileMenuOpen ? 0 : -1}
-                    >
-                        <span className="size-1.5 rounded-full bg-lime" />
-                        Open to opportunities
-                    </a>
-                </nav>
-            </header>
+            <SiteHeader email={profile.email} />
 
             <main id="main">
                 <section
@@ -947,11 +808,19 @@ export default function Home() {
                                             {project.tags[0]}
                                         </span>
                                     </div>
-                                    <p className="mt-3 line-clamp-2 text-[11px] leading-[1.7] text-white/50">
+                                    {project.role && (
+                                        <p className="mt-3 text-[10px] font-medium text-lime">{project.role} · Vue 2 / Nuxt 2</p>
+                                    )}
+                                    <p className={`mt-3 text-[11px] leading-[1.7] text-white/50 ${project.caseStudy ? "" : "line-clamp-2"}`}>
                                         {project.description ||
                                             "Responsive front-end implementation and interactive website experience."}
                                     </p>
                                     <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                                        {project.caseStudy && (
+                                            <Link href={project.caseStudy} className="inline-flex items-center gap-1 border-b border-lime pb-1 text-[9px] text-lime">
+                                                View case study <ArrowRight size={11} />
+                                            </Link>
+                                        )}
                                         {project.links.map((link) => (
                                             <a
                                                 key={link.url}
@@ -999,16 +868,14 @@ export default function Home() {
                             data-stagger
                             className="grid grid-cols-5 gap-8 max-sm:grid-cols-1"
                         >
-                            <div className="col-span-3 space-y-2">
+                            <div className="col-span-3">
                                 <p className="text-sm leading-[1.5] text-white/80">
                                     I'm a front-end developer based in
                                     Hertfordshire, UK, with over 7 years of
                                     commercial experience delivering responsive,
                                     interactive and multilingual websites for
                                     clients across different industries.
-                                    {/* profile.summary */}
-                                </p>
-                                <p className="text-sm leading-[1.5] text-white/80">
+                                    <br />
                                     My professional background is primarily in
                                     Vue.js and Nuxt.js development, where I've
                                     worked on more than 30 commercial website
@@ -1018,27 +885,33 @@ export default function Home() {
                                     implementation and cross-browser testing,
                                     working closely with designers and backend
                                     developers throughout the delivery process.
-                                </p>
-                                <p className="text-sm leading-[1.5] text-white/80">
+                                    <br />
                                     With a background in UI/UX and visual
                                     design, I bring attention to detail and a
                                     strong understanding of user interfaces to
                                     my development work. I enjoy translating
                                     complex design requirements into functional,
-                                    user-friendly and maintainable web experiences.
-                                </p>
-                                <p className="text-sm leading-[1.5] text-white/80">
+                                    accessible and maintainable web experiences.
+                                    <br />
                                     Alongside my commercial Vue/Nuxt experience,
                                     I've been expanding my technical skills
                                     through personal projects using React,
                                     Next.js and TypeScript, including the
                                     development of this portfolio website.
-                                </p>
-                                <p className="mt-5 text-[12px] leading-[1.9] text-white/50">
+                                    <br />
                                     I'm currently open to front-end development
                                     opportunities in the UK, where I can
                                     contribute my commercial experience while
                                     continuing to grow as an engineer.
+                                    <br />
+                                    {/* profile.summary */}
+                                </p>
+                                <p className="mt-5 text-[12px] leading-[1.9] text-white/50">
+                                    I enjoy working with designers and backend
+                                    developers to find practical solutions,
+                                    balance design requirements with technical
+                                    feasibility and create websites that work
+                                    consistently across different devices.
                                 </p>
                             </div>
                             <div className="col-span-2 space-y-6">
@@ -1309,6 +1182,11 @@ export default function Home() {
                             ))}
                         </div>
                         <div className="mt-6 flex flex-wrap gap-5">
+                            {selected.caseStudy && (
+                                <Link href={selected.caseStudy} className="inline-flex items-center gap-2 border-b border-lime pb-1 text-[11px] text-lime">
+                                    View case study <ArrowRight size={14} />
+                                </Link>
+                            )}
                             {selected.links.map((link) => (
                                 <a
                                     key={link.url}

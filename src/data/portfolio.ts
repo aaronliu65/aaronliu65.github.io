@@ -18,8 +18,8 @@ export const projects = [
         category: "Commercial",
         client: "Hong Kong Football Association",
         tags: [
-            "Nuxt.js",
-            "Vue.js",
+            "Nuxt 2",
+            "Vue 2",
             "JavaScript",
             "LESS",
             "Bootstrap",
@@ -30,9 +30,11 @@ export const projects = [
             "Fancyapps (Panzoom)",
         ],
         description:
-            "Built the responsive bilingual HKFA website from designer-provided layouts, implementing front-end pages and interactions for news, fixtures, results and league tables.",
+            "As the sole front-end developer, I built the HKFA website from scratch with Vue 2 and Nuxt 2, including responsive layouts, reusable match components and CMS-integrated content pages.",
         contribution:
             "Implemented every website page, front-end interaction logic and visual effects from designer-supplied layouts. Built reusable Vue components for recurring competition content, using conditional rendering and props to handle layout variations and make future API integration straightforward. Managed Traditional Chinese and English translations with i18n and YAML files, added Flickity sliders for news and fixtures/results, built the front-end presentation for league tables, and added Panzoom controls for shop image zoom. Also handled responsive layouts, cross-browser compatibility and image compression. Programmers handled the API, database, CMS for client content updates, and shopping functionality.",
+        role: "Sole Front-end Developer",
+        caseStudy: "/projects/hkfa",
         links: [{ label: "Visit website", url: "https://www.hkfa.com/" }],
         colour: "bg-[#fac9c9] text-[#980918]",
         cover: "/images/projects/hkfa.png",
