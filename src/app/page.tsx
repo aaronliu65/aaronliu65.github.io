@@ -809,7 +809,7 @@ export default function Home() {
                                         </span>
                                     </div>
                                     {project.role && (
-                                        <p className="mt-3 text-[10px] font-medium text-lime">{project.role} · Vue 2 / Nuxt 2</p>
+                                        <p className="mt-3 text-[10px] font-medium text-lime">{project.role} · {project.tags.slice(0, 2).join(" / ")}</p>
                                     )}
                                     <p className={`mt-3 text-[11px] leading-[1.7] text-white/50 ${project.caseStudy ? "" : "line-clamp-2"}`}>
                                         {project.description ||

@@ -46,20 +46,23 @@ export const projects = [
         category: "Property",
         client: "Hong Kong Housing Society",
         tags: [
-            "Nuxt.js",
-            "Vue.js",
+            "Nuxt 3",
+            "Vue 3",
+            "JavaScript",
+            "Tailwind CSS",
             "fullPage.js",
-            "Animate.css",
             "Swiper",
-            "i18n",
+            "Animate.css",
+            "Nuxt i18n",
             "YAML",
-            "Fancyapps Panzoom",
-            "Smooth Scrollbar",
+            "Fancyapps Fancybox / Panzoom",
         ],
         description:
-            "Led the front-end build of Delight Terrace from tender designer layouts, creating an interactive trilingual property website with location, school, transport, floor-plan and media sections.",
+            "Built a trilingual property website as the sole front-end developer, with full-screen navigation, tailored desktop and mobile layouts, and coordinated desktop video and background audio.",
         contribution:
-            "Led the front-end implementation from the ground up, working directly with the tender designer to discuss website behaviour and the feasibility of translating layouts into a functioning website. Managed Traditional Chinese, Simplified Chinese and English translations with i18n and YAML files. Built interactive sections for location and transport, school networks, design features, floor plans and the media bank. Built with Nuxt.js and Vue.js, using fullPage.js for full-page navigation, Animate.css for effects, Swiper for galleries, Fancyapps Panzoom for image zoom and drag-to-pan, and Smooth Scrollbar for a customised scrollbar. Developed reusable components with conditional rendering and props. Programmers handled the API, database, CMS for client content updates, sales information and form functionality.",
+            "Built the front end from client-supplied designs with Vue 3, Nuxt 3 and Tailwind CSS, working directly with the designer on layout feasibility and responsive adjustments. Connected fullPage.js section and slide state to animations, header styling, contextual disclaimers and popup scroll controls. Coordinated desktop video playback with background music while respecting the user’s music setting. Implemented English, Traditional Chinese and Simplified Chinese navigation, Swiper galleries, and Fancybox/Panzoom image viewing. Carried out manual desktop and mobile layout checks, refining spacing, imagery and content placement. Backend programmers handled API and CMS development and integration.",
+        role: "Sole Front-end Developer",
+        caseStudy: "/projects/delight-terrace",
         links: [
             {
                 label: "Visit website",
