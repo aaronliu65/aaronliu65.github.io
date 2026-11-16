@@ -1,17 +1,17 @@
-import type { MetadataRoute } from "next";
-import { projects } from "../data/portfolio";
+import type { MetadataRoute } from 'next';
 
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 
-const siteUrl = "https://aaronliu65.github.io/aaronliu_portfolio";
+const siteUrl = 'https://aaronliu65.github.io/aaronliu_portfolio/';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    return [
-        { url: `${siteUrl}/`, changeFrequency: "monthly", priority: 1 },
-        ...projects.filter((project) => project.caseStudy).map((project) => ({
-            url: `${siteUrl}${project.caseStudy}/`,
-            changeFrequency: "monthly" as const,
-            priority: 0.8,
-        })),
-    ];
+  return [
+    { url: `${siteUrl}projects/hkfa/`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${siteUrl}projects/the-haddon/`, changeFrequency: 'monthly', priority: 0.8 },
+    {
+      url: siteUrl,
+      changeFrequency: 'monthly',
+      priority: 1,
+    },
+  ];
 }

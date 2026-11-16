@@ -184,7 +184,7 @@ export default function DelightTerraceCaseStudy() {
                     </div>
                 </section>
                 <section className="my-10 flex flex-wrap items-center justify-between gap-6 border-y border-white/10 py-8" aria-label="Continue exploring">
-                    <Link href="/projects/hkfa" className="inline-flex items-center gap-3 text-sm hover:text-lime"><ArrowLeft size={16} aria-hidden="true" /> Read the HKFA case study</Link>
+                    <Link href="/#work" className="inline-flex items-center gap-3 text-sm hover:text-lime"><ArrowLeft size={16} aria-hidden="true" /> Explore more work</Link>
                     <a href={`mailto:${profile.email}`} className="rounded-full bg-lime px-5 py-3 text-[11px] font-semibold text-night">Get in touch</a>
                 </section>
             </main>
