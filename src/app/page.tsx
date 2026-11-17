@@ -1093,7 +1093,7 @@ export default function Home() {
                             </a>
                             <a
                                 className="inline-flex items-center gap-2 rounded-full bg-lime px-4 py-2.5 text-[10px] text-night transition-colors hover:bg-white"
-                                href="/Aaron_Liu_CV.docx"
+                                href="/Aaron_Liu_Front_End_Developer_UK_CV.pdf"
                                 download
                             >
                                 Download CV <Download size={13} />
